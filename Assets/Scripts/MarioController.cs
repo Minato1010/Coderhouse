@@ -10,6 +10,7 @@ public class MarioController : MonoBehaviour
 
     [SerializeField] private float maxHealth = 10;
     [SerializeField] private float currentHealth;
+    // public float KickDamage = 3f;
     [SerializeField] private Animator animator;
 
     [SerializeField] private Rigidbody marioRigidbody;
@@ -27,6 +28,8 @@ public class MarioController : MonoBehaviour
     
     [SerializeField] private AudioClip marioHurt;
     [SerializeField] private AudioClip GameOver;
+
+    public bool IsKicking;
     
     private bool Died = true;
     private float timeToDestroy;
@@ -77,6 +80,7 @@ public class MarioController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Kicking(true);
+                IsKicking = true;
             }
         }
        
@@ -88,6 +92,12 @@ public class MarioController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Kicking(true);
+                IsKicking = true;
+
+            }
+            else
+            {
+                IsKicking = false;
             }
         }
         
@@ -180,25 +190,18 @@ public class MarioController : MonoBehaviour
         }
 
     }
-    private bool IsWithinSpeedLimit()
+    /*private bool IsWithinSpeedLimit()
     {
         var l_currentYVelocity = Mathf.Abs(marioRigidbody.velocity.y);
         return l_currentYVelocity < speedLimit;
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            ReceiveDamage(.7f);
-            
-        }
     }
+    */
+    
 
     private void Jumping()
     {
-        if (IsWithinSpeedLimit())
-        {
+       // if (IsWithinSpeedLimit())        {
             
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
             if (Input.GetKeyDown(KeyCode.Space) && jumpToFront==false)
@@ -215,14 +218,16 @@ public class MarioController : MonoBehaviour
             {
                 audioSource.PlayOneShot(marioYipee);
                 animator.SetTrigger("jumpingFront");
-                Debug.Log("Saltando");
+                
                 animator.SetBool("IsWalking", false);
                 animator.SetBool("idle", false);
-                marioRigidbody.AddForce(transform.up * forceAmount, ForceMode.Impulse);
+                Kicking(false);
+                marioRigidbody.AddForce(transform.up * (forceAmount*1.5f), ForceMode.Impulse);
                 marioRigidbody.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
                 Kicking(false);
             }
-        }
+        //}
+       
     }
 
     private void Kicking(bool Kick)
@@ -235,21 +240,10 @@ public class MarioController : MonoBehaviour
 
         }
     }
-
-    private void Run()
-    {
-
-        speed = 15f;
-
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            ReceiveDamage(10f);
-        }
-    }
+    
+   
+    
+   
 
     
 }

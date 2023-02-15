@@ -17,10 +17,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private EnemyStates CurrentState;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float goombaDamage = 1f;
+    [SerializeField] private float goombaHealth = 2f;
     [SerializeField] private Animator goombaAnimator;
     [SerializeField] private Rigidbody goombaRigidbody;
-    private bool neverBeTrue = false;
-
+    [SerializeField] private float MarioDamage = 1;
+    [SerializeField] private bool IsWalking;
+    [SerializeField] private Vector3 vectorZero= new Vector3(0,0,0);
 
     private float timeToAtack = 2 ;
     private bool Atack;
@@ -32,10 +34,7 @@ public class EnemyScript : MonoBehaviour
         rotationSpeed = .5f;
 
     }
-    public void SetState()
-    {
-       
-    }
+    
     
     void Update()
     {
@@ -59,24 +58,28 @@ public class EnemyScript : MonoBehaviour
         var vectorToChar = character.position - transform.position;
         var distance = vectorToChar.magnitude;
         vectorToChar.Normalize();
-        
-        if (distance>2)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, character.position, Time.deltaTime * speed);
-            goombaAnimator.SetBool("Walking", true);
-            
-            transform.LookAt(character.position);
 
-            if (neverBeTrue == true)
-            {
-                goombaRigidbody.AddForce(transform.up * 1, ForceMode.Impulse);
-            }
-            
+        if (vectorToChar!= vectorZero)
+        {
+            IsWalking = true;
+            goombaAnimator.SetBool("Walking", true);
         }
         else
         {
-            goombaAnimator.SetBool("idle", true);
+            IsWalking = false;
         }
+        
+        if (IsWalking == true && distance<=60)
+        {
+
+            transform.position = Vector3.MoveTowards(transform.position, character.position, Time.deltaTime * speed);
+            
+            transform.LookAt(character.position);
+
+            IsWalking = true;
+            
+        }
+
 
     }
     private void LookAtPlayer()
@@ -85,6 +88,7 @@ public class EnemyScript : MonoBehaviour
         
         var newRotation = Quaternion.LookRotation(vectorToChar);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
+        
 
         if (vectorToChar.x<=2 || vectorToChar.z<=2)
         {
@@ -95,10 +99,19 @@ public class EnemyScript : MonoBehaviour
 
                
     }
-
+    private void goombaReceiveDamage(float damage )
+    {
+        damage = 1;
+        goombaHealth -= damage;
+        
+        if (goombaHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
    
-    private void OnCollisionStay(Collision collision)
+     void OnCollisionStay(Collision collision)
     {
         if (collision.collider.gameObject.tag == "Player")
         {
@@ -110,8 +123,8 @@ public class EnemyScript : MonoBehaviour
                     
                     var MarioController = collision.collider.gameObject.GetComponent<MarioController>();
 
-                     
 
+                    
 
 
                     if (timeToAtack <= Time.time && Atack==false)
@@ -138,7 +151,21 @@ public class EnemyScript : MonoBehaviour
 
         }
     }
-   
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            var MarioController = collision.collider.gameObject.GetComponent<MarioController>();
+            
 
+            if (MarioController.IsKicking == true)
+            {
+                goombaReceiveDamage(MarioDamage);
+            }
+        }
+        
+    }
+
+    
 
 }

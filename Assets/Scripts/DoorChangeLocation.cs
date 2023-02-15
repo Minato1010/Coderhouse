@@ -33,10 +33,9 @@ public class DoorChangeLocation : MonoBehaviour
 
                     break;
                 case door.door2:
-                    // if (other.gameObject.tag == "Player")
-                    //{
+                    
                     other.gameObject.transform.position = door1Position.position;
-                    // }
+                   
                     break;
 
             }
