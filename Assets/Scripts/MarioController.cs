@@ -10,7 +10,6 @@ public class MarioController : MonoBehaviour
 
     [SerializeField] private float maxHealth = 10;
     [SerializeField] private float currentHealth;
-    // public float KickDamage = 3f;
     [SerializeField] private Animator animator;
 
     [SerializeField] private Rigidbody marioRigidbody;
@@ -29,6 +28,8 @@ public class MarioController : MonoBehaviour
     [SerializeField] private AudioClip marioHurt;
     [SerializeField] private AudioClip GameOver;
 
+    public bool marioIsJumping;
+
     public bool IsKicking;
     
     private bool Died = true;
@@ -37,11 +38,13 @@ public class MarioController : MonoBehaviour
     private float cameraSoundDelay;
 
     protected Vector3 idlePosition = new Vector3(0, 0, 0);
+
     void Start()
 
     {
         speed = 10f;
         currentHealth = maxHealth;
+        
     }
    
 
@@ -51,7 +54,7 @@ public class MarioController : MonoBehaviour
         {
             
             Move(GetMoveVector());
-            
+           
 
         }  
 
@@ -59,9 +62,9 @@ public class MarioController : MonoBehaviour
 
         
     }
+   
 
-
-    private void Move(Vector3 MoveDir)
+        private void Move(Vector3 MoveDir)
     {
        
 
@@ -190,21 +193,15 @@ public class MarioController : MonoBehaviour
         }
 
     }
-    /*private bool IsWithinSpeedLimit()
-    {
-        var l_currentYVelocity = Mathf.Abs(marioRigidbody.velocity.y);
-        return l_currentYVelocity < speedLimit;
-
-    }
-    */
+    
     
 
-    private void Jumping()
+    public void Jumping()
     {
-       // if (IsWithinSpeedLimit())        {
             
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
-            if (Input.GetKeyDown(KeyCode.Space) && jumpToFront==false)
+       
+            if (Input.GetKeyDown(KeyCode.Space) &&  jumpToFront==false)
             {
                 animator.SetTrigger("jumping");
                 animator.SetBool("IsWalking", false);
@@ -212,10 +209,11 @@ public class MarioController : MonoBehaviour
                 marioRigidbody.AddForce(transform.up * forceAmount, ForceMode.Impulse);
                
                 audioSource.PlayOneShot(marioYahoo);
-
+            marioIsJumping = true;
             } 
-            else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront)
+            else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == true)
             {
+            marioIsJumping = true;
                 audioSource.PlayOneShot(marioYipee);
                 animator.SetTrigger("jumpingFront");
                 
@@ -226,7 +224,11 @@ public class MarioController : MonoBehaviour
                 marioRigidbody.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
                 Kicking(false);
             }
-        //}
+        else
+        {
+            marioIsJumping = false;
+        }
+        
        
     }
 

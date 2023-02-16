@@ -15,9 +15,14 @@ public class DoorChangeLocation : MonoBehaviour
     [SerializeField] private Transform door1Position;
     [SerializeField] private Transform door2Position;
     [SerializeField] private door currentDoor;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip peachCastle;
 
-
-
+    
+    private void Start()
+    {
+        audioSource = GameManager.instance.audioSource;
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -28,7 +33,7 @@ public class DoorChangeLocation : MonoBehaviour
                 case door.door1:
                     
                     other.gameObject.transform.position = door2Position.position + new Vector3(0, 0, -2);
-                     
+                    audioSource.PlayOneShot(peachCastle);
 
 
                     break;
