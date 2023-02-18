@@ -53,6 +53,8 @@ public class EnemyScript : MonoBehaviour
         character = GameManager.instance.marioTransform;
 
         audioSource = GameManager.instance.audioSource;
+        goombaDestroyed = GameManager.instance.goombaDestroyed;
+        goombaFindMario = GameManager.instance.goombaFindMario;
         if (enemyDistanceToSee <= 0)
         {
             enemyDistanceToSee = 30f;

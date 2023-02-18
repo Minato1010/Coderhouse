@@ -385,7 +385,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134445305}
-  m_LocalRotation: {x: 0.026056983, y: -0.0000000010750335, z: 2.8021646e-11, w: 0.9996605}
+  m_LocalRotation: {x: 0.026056983, y: 0.000000001075034, z: -2.8021658e-11, w: 0.9996605}
   m_LocalPosition: {x: -3925.193, y: 7.0699997, z: 2864.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -698,7 +698,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.026056983, y: -0.0000000010750335, z: 2.8021646e-11, w: 0.9996605}
+  m_LocalRotation: {x: 0.026056983, y: 0.000000001075034, z: -2.8021658e-11, w: 0.9996605}
   m_LocalPosition: {x: -3925.193, y: 7.0699997, z: 2864.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3593,6 +3593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marioTransform: {fileID: 1064757665}
   audioSource: {fileID: 1064757666}
+  goombaDestroyed: {fileID: 8300000, guid: 9f01f6917f17f184188981840a849333, type: 3}
+  goombaFindMario: {fileID: 8300000, guid: 3b572a5bdf1cfcc4eb0f0b47ea17c2de, type: 3}
 --- !u!4 &2093752725
 Transform:
   m_ObjectHideFlags: 0

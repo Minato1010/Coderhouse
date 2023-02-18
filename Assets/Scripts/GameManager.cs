@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private float score;
     public Transform marioTransform;
     public AudioSource audioSource;
+    public AudioClip goombaDestroyed;
+    public AudioClip goombaFindMario;
     private void Awake()
     {
         if (instance != null)
