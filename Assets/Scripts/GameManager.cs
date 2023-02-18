@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     }
     public void CoinsCollected(int Coin)
     {
+
         Coin += Coin;
         Debug.Log("Coins collected: " + Coin);
 

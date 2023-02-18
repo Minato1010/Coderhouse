@@ -87,12 +87,14 @@ public class EnemyScript : MonoBehaviour
         var collided = Physics.Raycast(goombaPosition.position , vectorToChar, out RaycastHit raycastHitInfo, enemyDistanceToSee, layerToCollideWith );
         if (collided && raycastHitInfo.collider.tag == "Player")
         {
-
+            goombaAnimator.SetBool("Walking", true);
             GoToPlayer = true;
 
         }
         else
         {
+            goombaAnimator.SetBool("Walking", false);
+            goombaAnimator.SetBool("idle", true);
             GoToPlayer = false;
         }
 
@@ -109,7 +111,7 @@ public class EnemyScript : MonoBehaviour
         if (vectorToChar != vectorZero)
         {
             IsWalking = true;
-            goombaAnimator.SetBool("Walking", true);
+            
 
 
             watchedMario = false;
@@ -123,6 +125,7 @@ public class EnemyScript : MonoBehaviour
         RaycastToPlayer();
         if (GoToPlayer == true)
         {
+
         
         if (IsWalking == true && marioIsJumping == false)
         {
@@ -179,10 +182,17 @@ public class EnemyScript : MonoBehaviour
             {
 
                 audioSource.PlayOneShot(goombaDestroyed);
-                Destroy(gameObject);
+                beDestroyed = false;
+                if (beDestroyed == false)
+                {
+                    GameManager.instance.CharacterScore(goombaScore);
+                    
+                }            
 
-                GameManager.instance.CharacterScore(goombaScore);
+
+
             }
+            Destroy(gameObject);
         }
     }
 
