@@ -98,6 +98,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.42053068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23037079
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.85207343
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20989102
+      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -332,13 +348,17 @@ MonoBehaviour:
   IsWalking: 0
   vectorZero: {x: 0, y: 0, z: 0}
   marioIsJumping: 0
+  goombaPositions: []
+  ThresholdDistance: 2
+  i: 0
   audioSource: {fileID: 0}
   goombaDestroyed: {fileID: 8300000, guid: 9f01f6917f17f184188981840a849333, type: 3}
   goombaFindMario: {fileID: 8300000, guid: 3b572a5bdf1cfcc4eb0f0b47ea17c2de, type: 3}
-  enemyDistanceToSee: 0
+  enemyDistanceToSee: 20
   layerToCollideWith:
     serializedVersion: 2
     m_Bits: 512
+  beDestroyed: 1
 --- !u!4 &5560608345248678997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400036, guid: 7cad6d3375c630840b43073a105c8e1e,

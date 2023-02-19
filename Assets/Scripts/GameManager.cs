@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip goombaDestroyed;
     public AudioClip goombaFindMario;
+    public EnemyScript goombaPrefab;
+    public Transform[] goombaPositions;
+    
     private void Awake()
     {
         if (instance != null)
@@ -21,7 +24,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-
+    
 
     public void CharacterScore(float ScoreAmount)
     {
