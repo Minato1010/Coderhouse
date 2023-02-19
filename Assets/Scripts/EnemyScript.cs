@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private EnemyStates CurrentState;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float goombaDamage = 1f;
-    [SerializeField] private float goombaHealth = 2f;
+    public float goombaHealth = 2f;
     [SerializeField] private Animator goombaAnimator;
     [SerializeField] private Rigidbody goombaRigidbody;
     [SerializeField] private Transform goombaPosition;
@@ -25,53 +25,62 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private bool IsWalking;
     [SerializeField] private Vector3 vectorZero= new Vector3(0,0,0);
     [SerializeField] private bool marioIsJumping;
-
+    [SerializeField] private Transform[] goombaPositions;
+    [SerializeField] private float ThresholdDistance = 2f;
+    [SerializeField]private int i = 0;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip goombaDestroyed;
     [SerializeField] private AudioClip goombaFindMario;
-
 
     [SerializeField] private float enemyDistanceToSee;
     [SerializeField] private LayerMask layerToCollideWith;
     private bool GoToPlayer;
     private bool watchedMario;
 
-
-    private float goombaScore = 50;
+    private bool wayToInit = true;
+    private float goombaScore = 50f;
     private float timeToAtack = 2 ;
     private bool Atack;
-    private bool beDestroyed = true;
+    public bool beDestroyed = true;
 
     private float delayToDamage = 1f;
-    
 
     void Start()
     {
-        speed = 1;
-        rotationSpeed = .5f;
         character = GameManager.instance.marioTransform;
+        
+        
 
         audioSource = GameManager.instance.audioSource;
         goombaDestroyed = GameManager.instance.goombaDestroyed;
         goombaFindMario = GameManager.instance.goombaFindMario;
-        if (enemyDistanceToSee <= 0)
-        {
-            enemyDistanceToSee = 30f;
-        }
+        goombaPositions = GameManager.instance.goombaPositions;
+        speed = 1;
+        rotationSpeed = .5f;
+        
+        
     }
     
     
     void Update()
     {
-        
+     
+       
 
         switch (CurrentState)
         {
             case EnemyStates.Goomba:
 
-
-                ExecuteGoombaPursuit();
+                RaycastToPlayer();
+                if (GoToPlayer == true)
+                {
+                    ExecuteGoombaPursuit();
+                }
+                else
+                {
+                    Patrol();
+                }
                 
                 break;
             case EnemyStates.PiranhaPlant:
@@ -124,9 +133,7 @@ public class EnemyScript : MonoBehaviour
             watchedMario = true;
         }
 
-        RaycastToPlayer();
-        if (GoToPlayer == true)
-        {
+        
 
         
         if (IsWalking == true && marioIsJumping == false)
@@ -144,19 +151,72 @@ public class EnemyScript : MonoBehaviour
             IsWalking = true;
 
         }
+            
+    }
+       
+
+    
+    
+
+    private void Move(Vector3 direction)
+    {
+        if (GoToPlayer == false)
+        {
+            transform.position += direction * (speed * Time.deltaTime);
+            goombaRigidbody.AddForce(transform.up * (-2f), ForceMode.Impulse);
+            goombaAnimator.SetBool("Walking", true);
+        }
+        else
+        {
+            ExecuteGoombaPursuit();
+        }
+    }
+
+    private void Patrol()
+    {
+        var wayToGo = Random.Range(0, 5);
+        var currentWaypoint = goombaPositions[i];
+        var currDifference = (currentWaypoint.position - transform.position);
+        var direction = currDifference.normalized;
+        Move(direction);
+        var currDistance = currDifference.magnitude;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currDifference), Time.deltaTime * rotationSpeed); ;
+        if (currDistance <= ThresholdDistance)
+        {
+            if (wayToGo <= 2)
+            {
+                NextWaypoint();
+            }
             else
             {
-                Patroling();
+                LessWaypoint();
             }
+        }
     }
 
-
-    }
-    private void Patroling()
+    private void NextWaypoint()
     {
-
+        i++;
+        if (i >4)
+        {
+            i = 0;
+        }
     }
-    private void LookAtPlayer()
+    private void LessWaypoint()
+    {
+        if (wayToInit==true)
+        {
+            i = 4;
+            wayToInit = false;
+        }
+        i--;
+        if (i < 0)
+        {
+            i = 4;
+        }
+    }
+
+private void LookAtPlayer()
     {
         var vectorToChar = character.position - transform.position;
         
