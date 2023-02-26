@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private float score;
-    public Transform marioTransform;
+    public MarioController marioTransform;
     public AudioSource audioSource;
     public AudioClip goombaDestroyed;
     public AudioClip goombaFindMario;
     public EnemyScript goombaPrefab;
     public Transform[] goombaPositions;
+    public bool KingBobOmbDied;
     
     private void Awake()
     {
@@ -39,5 +40,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("Coins collected: " + Coin);
 
     }
+    public void KingBobOmbDefeated()
+    {
+        
+           var mario= marioTransform.GetComponent<MarioController>();
+            mario.KingBobOmbDefeated();
+            Debug.Log("Victory");
+            KingBobOmbDied = true;
+        
+    }
+   
 
 }

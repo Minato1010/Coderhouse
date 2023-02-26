@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
 {
 
 
-    [SerializeField] private Transform character;
+    public MarioController character;
     [SerializeField] private float speed;
     [SerializeField] private EnemyStates CurrentState;
     [SerializeField] private float rotationSpeed;
@@ -29,7 +29,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float ThresholdDistance = 2f;
     [SerializeField]private int i = 0;
 
-    [SerializeField] private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip goombaDestroyed;
     [SerializeField] private AudioClip goombaFindMario;
 
@@ -43,14 +43,14 @@ public class EnemyScript : MonoBehaviour
     private float timeToAtack = 2 ;
     private bool Atack;
     public bool beDestroyed = true;
-
+   
     private float delayToDamage = 1f;
-
+    
     void Start()
     {
+
+
         character = GameManager.instance.marioTransform;
-        
-        
 
         audioSource = GameManager.instance.audioSource;
         goombaDestroyed = GameManager.instance.goombaDestroyed;
@@ -61,12 +61,15 @@ public class EnemyScript : MonoBehaviour
         
         
     }
-    
+
     
     void Update()
     {
-     
+
        
+
+
+
 
         switch (CurrentState)
         {
@@ -93,7 +96,8 @@ public class EnemyScript : MonoBehaviour
 
     private void RaycastToPlayer()
     {
-        var vectorToChar = character.position - goombaPosition.position;
+       
+        var vectorToChar = character.gameObject.transform.position - goombaPosition.position;
         vectorToChar.Normalize();
         var collided = Physics.Raycast(goombaPosition.position , vectorToChar, out RaycastHit raycastHitInfo, enemyDistanceToSee, layerToCollideWith );
         if (collided && raycastHitInfo.collider.tag == "Player")
@@ -116,7 +120,7 @@ public class EnemyScript : MonoBehaviour
     {
 
 
-        var vectorToChar = character.position - transform.position;
+        var vectorToChar = character.gameObject.transform.position - transform.position;
         vectorToChar.Normalize();
 
         if (vectorToChar != vectorZero)
@@ -144,9 +148,9 @@ public class EnemyScript : MonoBehaviour
 
             }
             goombaRigidbody.AddForce(transform.up * (-2f), ForceMode.Impulse);
-            transform.position = Vector3.MoveTowards(transform.position, character.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, character.gameObject.transform.position, Time.deltaTime * speed);
 
-            transform.LookAt(character.position);
+            transform.LookAt(character.gameObject.transform.position);
 
             IsWalking = true;
 
@@ -176,7 +180,7 @@ public class EnemyScript : MonoBehaviour
     {
         var wayToGo = Random.Range(0, 5);
         var currentWaypoint = goombaPositions[i];
-        var currDifference = (currentWaypoint.position - transform.position);
+        var currDifference = currentWaypoint.position - transform.position;
         var direction = currDifference.normalized;
         Move(direction);
         var currDistance = currDifference.magnitude;
@@ -218,7 +222,7 @@ public class EnemyScript : MonoBehaviour
 
 private void LookAtPlayer()
     {
-        var vectorToChar = character.position - transform.position;
+        var vectorToChar = character.gameObject.transform.position - transform.position;
         
         var newRotation = Quaternion.LookRotation(vectorToChar);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
@@ -248,7 +252,6 @@ private void LookAtPlayer()
                 if (beDestroyed == false)
                 {
                     GameManager.instance.CharacterScore(goombaScore);
-                    
                 }            
 
 
@@ -314,6 +317,7 @@ private void LookAtPlayer()
 
             if (MarioController.IsKicking == true)
             {
+
                 if (delayToDamage <= Time.time)
                 {
 

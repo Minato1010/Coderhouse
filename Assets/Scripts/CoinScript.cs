@@ -11,7 +11,7 @@ public class CoinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            var marioControler = GameManager.instance.marioTransform.GetComponent<MarioController>();
+            var marioControler = other.GetComponent<MarioController>();
 
             if (Healing == true)
             {

@@ -9,8 +9,9 @@ public class InstanceGoombas : MonoBehaviour
     private int posToAppear;
     [SerializeField] private int maxGoombas;
     private int goombasAppearing;
-    [SerializeField] private float timeToAppear = 15f;
+     private float timeToAppear=0;
     private bool appear;
+    private int i;
 
     private void Start()
     {
@@ -22,23 +23,27 @@ public class InstanceGoombas : MonoBehaviour
     private void Update()
     {
         InstantiateGoombas();
+
+
     }
     
 
-    private void InstantiateGoombas()
+    public void InstantiateGoombas()
     {
 
-        for (int i=0;i<=maxGoombas;i++)
+       
+
+        for (i=0;i<=maxGoombas;i++)
         {
 
-            if (timeToAppear <= Time.time && appear == true && goombasAppearing < maxGoombas)
+            if (timeToAppear <= Time.time && appear == true && goombasAppearing<=maxGoombas)
             {
                 posToAppear = Random.Range(0, goombaWaypoints.Count);
                 Instantiate(GoombaPrefab, goombaWaypoints[posToAppear].position, Quaternion.identity);
-                Debug.Log("Aparecio goombaa");
                 appear = false;
                 goombasAppearing++;
-
+                GoombaPrefab.character = GameManager.instance.marioTransform;
+                GoombaPrefab.audioSource = GameManager.instance.audioSource;
 
             }
             else if (appear == false)
@@ -46,14 +51,15 @@ public class InstanceGoombas : MonoBehaviour
                 timeToAppear = 10f + Time.time;
                 appear = true;
 
-            }
-            
-            
-
+            }      
         }
+       
        
         
     }
+    
+
+
     
 
 

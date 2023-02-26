@@ -12,7 +12,7 @@ public class MarioController : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private Animator animator;
 
-    [SerializeField] private Rigidbody marioRigidbody;
+    public Rigidbody marioRigidbody;
     [SerializeField] private float forceAmount;
     [SerializeField] private float speedLimit;
 
@@ -27,6 +27,8 @@ public class MarioController : MonoBehaviour
     
     [SerializeField] private AudioClip marioHurt;
     [SerializeField] private AudioClip GameOver;
+    [SerializeField] private Transform afterDefeatBobOmb;
+
 
     public bool marioIsJumping;
 
@@ -61,6 +63,14 @@ public class MarioController : MonoBehaviour
         
 
         
+    }
+    public void KingBobOmbDefeated()
+    {
+        if (GameManager.instance.KingBobOmbDied == true)
+        {
+            transform.position = afterDefeatBobOmb.position;
+
+        }
     }
    
 
@@ -174,7 +184,7 @@ public class MarioController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-           
+            audioSource.Stop();
             audioSource.PlayOneShot(GameOver);
             animator.SetTrigger("Died");
             if (timeToDestroy <=Time.time && Died==false)
@@ -200,35 +210,40 @@ public class MarioController : MonoBehaviour
     {
             
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
-       
-            if (Input.GetKeyDown(KeyCode.Space) &&  jumpToFront==false)
+        
+    var collided = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .4f);
+        if (collided)
+        {
+
+
+            if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
             {
                 animator.SetTrigger("jumping");
                 animator.SetBool("IsWalking", false);
                 animator.SetBool("idle", false);
                 marioRigidbody.AddForce(transform.up * forceAmount, ForceMode.Impulse);
-               
+
                 audioSource.PlayOneShot(marioYahoo);
-            marioIsJumping = true;
-            } 
+                marioIsJumping = true;
+            }
             else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == true)
             {
-            marioIsJumping = true;
+                marioIsJumping = true;
                 audioSource.PlayOneShot(marioYipee);
                 animator.SetTrigger("jumpingFront");
-                
+
                 animator.SetBool("IsWalking", false);
                 animator.SetBool("idle", false);
                 Kicking(false);
-                marioRigidbody.AddForce(transform.up * (forceAmount*1.5f), ForceMode.Impulse);
+                marioRigidbody.AddForce(transform.up * (forceAmount * 1.5f), ForceMode.Impulse);
                 marioRigidbody.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
                 Kicking(false);
             }
-        else
-        {
-            marioIsJumping = false;
+            else
+            {
+                marioIsJumping = false;
+            }
         }
-        
        
     }
 
