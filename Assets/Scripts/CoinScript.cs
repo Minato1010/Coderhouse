@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    private bool Healing = true;
+    protected bool Healing = true;
     private int CoinCollected = 1;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

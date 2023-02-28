@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         Coin += Coin;
         Debug.Log("Coins collected: " + Coin);
 
+
     }
     public void KingBobOmbDefeated()
     {
