@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MenuController : CoinScript
+public class MenuController : MonoBehaviour
 {
 
-    
 
-    public void teleportScene()
+    private int coins;
+
+    private void Update()
     {
-
-        SceneManager.LoadScene("MainScene");
-
+        string  hola =""+ coins;
     }
-   
+
+
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 
 
 }
