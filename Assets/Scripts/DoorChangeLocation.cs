@@ -16,7 +16,7 @@ public class DoorChangeLocation : MonoBehaviour
     [SerializeField] private Transform door2Position;
     [SerializeField] private door currentDoor;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip peachCastle;
+    public AudioClip peachCastle;
 
     
     private void Start()

@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
     public EnemyScript goombaPrefab;
     public Transform[] goombaPositions;
     public bool KingBobOmbDied;
+    [SerializeField] private Transform insideCastle;
+    public int coins;
+    public int starsCollected;
+    [SerializeField] private StarScript Star;
+    [SerializeField] private Transform StarPosition;
+    public AudioClip FileSelect;
+    public AudioClip peachCastle;
+    
     
     private void Awake()
     {
@@ -26,7 +34,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-    
+   
 
     public void CharacterScore(float ScoreAmount)
     {
@@ -36,9 +44,7 @@ public class GameManager : MonoBehaviour
     }
     public void CoinsCollected(int Coin)
     {
-
-        Coin += Coin;
-        Debug.Log("Coins collected: " + Coin);
+        coins += Coin;
 
 
     }
@@ -46,11 +52,25 @@ public class GameManager : MonoBehaviour
     {
         
            var mario= marioTransform.GetComponent<MarioController>();
-            mario.KingBobOmbDefeated();
+          
             Debug.Log("Victory");
+            Instantiate(Star, StarPosition);
+
             KingBobOmbDied = true;
         
+        
     }
-   
+    public void StarCollected(int stars)
+    {
+        var mario = marioTransform.GetComponent<MarioController>();
+
+        starsCollected += stars;
+        audioSource.Stop();
+        mario.transform.position = insideCastle.position;
+
+        audioSource.PlayOneShot(peachCastle);
+
+    }
+
 
 }

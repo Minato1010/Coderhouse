@@ -12,8 +12,10 @@ public class KingBobOmb : MonoBehaviour
     [SerializeField] private float speed;
     private bool talking;
     private MarioController character;
+   [SerializeField] private bool atacking;
     private float timeToAtack;
-    private bool atacking;
+    private bool rotate;
+    private float rotateTime;
     private void Start()
     {
         character = GameManager.instance.marioTransform;
@@ -31,11 +33,46 @@ public class KingBobOmb : MonoBehaviour
         vectorToChar.Normalize();
         transform.position += vectorToChar*(speed*Time.deltaTime);
 
-        KingAnimator.SetBool("IsAtacked", false);
-        KingAnimator.SetBool("IsWalking", true);
-        KingAnimator.SetBool("IsAtacking", false);
-        KingAnimator.SetBool("Talking", false);
-       
+        
+        
+            KingAnimator.SetBool("IsWalking", true);
+            KingAnimator.SetBool("Talking", false);
+        if (rotate == false)
+        {
+            transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(transform.position), Quaternion.LookRotation(vectorToChar), 4);
+            rotate = true;
+        }
+        /*    rotate = false;
+        }
+        else if (rotate == false)
+        {
+            rotateTime = 1.5f + Time.time;
+            rotate = true;
+
+        }*/
+      
+        if (timeToAtack<=Time.time && atacking==true)
+        {
+            Atack();
+        }
+        else if (atacking == false)
+        {
+            atacking = true;
+            timeToAtack = 4f + Time.time;
+            KingAnimator.SetBool("IsWalking", true);
+
+        }
+
+    }
+    private void Atack()
+    {
+        rotate = false;
+
+        KingAnimator.SetBool("IsWalking", false);
+
+        transform.rotation =Quaternion.Euler(character.transform.position) ;
+        KingAnimator.SetTrigger("Atacking");
+        atacking = false;
     }
     private void TalkWithThePlayer()
     {
@@ -56,7 +93,7 @@ public class KingBobOmb : MonoBehaviour
         var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 20);
         if (collided)
         {
-            Move(character.gameObject.transform.position);
+            Move(character.transform.position);
         }
         else
         {
@@ -71,49 +108,26 @@ public class KingBobOmb : MonoBehaviour
         if (collision.collider.gameObject.tag == "Player")
         {
             var marioControl = collision.collider.GetComponent<MarioController>();
-            var vectorToChar = character.transform.position - transform.position;
-            if (vectorToChar.magnitude <= .5f &&  timeToAtack <= Time.time && atacking==true)
-            {
-                marioControl.ReceiveDamage(1);
-                atacking = false;
-                KingAnimator.SetBool("IsAtacked", false);
-                KingAnimator.SetBool("IsWalking", false);
-                KingAnimator.SetBool("IsAtacking", true);
-                KingAnimator.SetTrigger("Atacking");
-                KingAnimator.SetBool("Talking", false);
+                marioControl.ReceiveDamage(.4f);              
+               
+            
 
-            }
-            else if(atacking==false)
-            {
-                atacking = true;
-                timeToAtack = 2+ Time.time;
-                if (marioControl.IsKicking == false)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(vectorToChar.normalized), Time.deltaTime * .6f); ;
-
-                }
-            }
-            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * 5, ForceMode.Impulse);
-
-
-
+            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * 3, ForceMode.Impulse);
+            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.up) * 1, ForceMode.Impulse);
 
         }
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && other.GetComponent<MarioController>().IsKicking == true)
         {
-            var marioControl = other.GetComponent<MarioController>();
-            if (marioControl.IsKicking == true)
-            {
-                ReceiveDamage(3); 
-                KingAnimator.SetBool("IsAtacked", true);
+            
+                ReceiveDamage(3);
+                KingAnimator.SetTrigger("Atacked");
                 KingAnimator.SetBool("IsWalking", false);
-                KingAnimator.SetBool("IsAtacking", false);
                 KingAnimator.SetBool("Talking", false);
-            }
+            
 
         }
     }
@@ -123,7 +137,6 @@ public class KingBobOmb : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0){
             GameManager.instance.KingBobOmbDefeated();
-            Debug.Log("HOLA");
             Destroy(gameObject);
         }
     }

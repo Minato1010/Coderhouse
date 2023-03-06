@@ -5,39 +5,39 @@ using UnityEngine;
 public class MarioController : MonoBehaviour
 {
 
-    [SerializeField] private float speed;
-    [SerializeField] private float rotateSpeed;
+    [SerializeField] protected float speed;
+    [SerializeField] protected float rotateSpeed;
 
-    [SerializeField] private float maxHealth = 10;
-    [SerializeField] private float currentHealth;
-    [SerializeField] private Animator animator;
+    [SerializeField] protected float maxHealth = 8;
+    public float currentHealth;
+    [SerializeField] protected Animator animator;
 
     public Rigidbody marioRigidbody;
-    [SerializeField] private float forceAmount;
-    [SerializeField] private float speedLimit;
+    [SerializeField] protected float forceAmount;
+    [SerializeField] protected float speedLimit;
 
-    [SerializeField] private Vector3 movingMario;
+    [SerializeField] protected Vector3 movingMario;
 
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip marioYahoo;
-    [SerializeField] private AudioClip marioYipee;
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip marioYahoo;
+    [SerializeField] protected AudioClip marioYipee;
 
-    [SerializeField] private AudioClip cameraMoving;
+    [SerializeField] protected AudioClip cameraMoving;
 
     
-    [SerializeField] private AudioClip marioHurt;
-    [SerializeField] private AudioClip GameOver;
-    [SerializeField] private Transform afterDefeatBobOmb;
+    [SerializeField] protected AudioClip marioHurt;
+    [SerializeField] protected AudioClip GameOver;
+    public Transform afterDefeatBobOmb;
 
 
     public bool marioIsJumping;
 
     public bool IsKicking;
     
-    private bool Died = true;
-    private float timeToDestroy;
-    private bool cameraIsMoving = true;
-    private float cameraSoundDelay;
+    protected bool Died = true;
+    protected float timeToDestroy;
+    protected bool cameraIsMoving = true;
+    protected float cameraSoundDelay;
 
     protected Vector3 idlePosition = new Vector3(0, 0, 0);
 
@@ -64,17 +64,14 @@ public class MarioController : MonoBehaviour
 
         
     }
-    public void KingBobOmbDefeated()
+    public float GetHealth()
     {
-        if (GameManager.instance.KingBobOmbDied == true)
-        {
-            transform.position = afterDefeatBobOmb.position;
-
-        }
+        return currentHealth;
     }
+    
    
 
-        private void Move(Vector3 MoveDir)
+        protected void Move(Vector3 MoveDir)
     {
        
 
@@ -124,7 +121,8 @@ public class MarioController : MonoBehaviour
     }
     private void RotateCharacter(float rotateAmount)
     {
-       
+
+        transform.Rotate(Vector3.up, rotateAmount * rotateSpeed, Space.Self);
         
 
         if (rotateAmount != 0 && cameraSoundDelay<=Time.time)
@@ -144,11 +142,11 @@ public class MarioController : MonoBehaviour
             cameraSoundDelay = 1f + Time.time;
         }
 
-        transform.Rotate(Vector3.up, rotateAmount * rotateSpeed, Space.Self);
+        
 
     }
 
-    private Vector3 GetMoveVector()
+    protected Vector3 GetMoveVector()
     {
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
@@ -211,7 +209,7 @@ public class MarioController : MonoBehaviour
             
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
         
-    var collided = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .4f);
+    var collided = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .8f);
         if (collided)
         {
 
@@ -247,7 +245,7 @@ public class MarioController : MonoBehaviour
        
     }
 
-    private void Kicking(bool Kick)
+    protected void Kicking(bool Kick)
     {
         if (Input.GetKeyDown(KeyCode.F) && Kick==true)
         {
