@@ -68,7 +68,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100036, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
       propertyPath: m_Name
-      value: Goomba (1)
+      value: Goomba
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 7cad6d3375c630840b43073a105c8e1e, type: 3}
       propertyPath: m_IsActive
@@ -351,6 +351,7 @@ MonoBehaviour:
   goombaPositions: []
   ThresholdDistance: 2
   i: 0
+  enemyData: {fileID: 11400000, guid: 85e0d40f5cd94154486e334c56d44b8b, type: 2}
   audioSource: {fileID: 0}
   goombaDestroyed: {fileID: 8300000, guid: 9f01f6917f17f184188981840a849333, type: 3}
   goombaFindMario: {fileID: 8300000, guid: 3b572a5bdf1cfcc4eb0f0b47ea17c2de, type: 3}

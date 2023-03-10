@@ -929,6 +929,79 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 307254946464216904, guid: bca8dc9c77ba91d44ac656a56767dcb9, type: 3}
+--- !u!1001 &445525564
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3868.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 313.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3018.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1 &452161241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4141374545729194220, guid: bca8dc9c77ba91d44ac656a56767dcb9,
@@ -2066,6 +2139,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
     - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
         type: 3}
       propertyPath: m_RootOrder
@@ -2645,6 +2722,152 @@ Transform:
   m_Father: {fileID: 600887704}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1154459624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3852.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 313.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3042.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+--- !u!1001 &1159015624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3892.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 313.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3041.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1001 &1169648720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2830,6 +3053,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205476742}
   m_Mesh: {fileID: 0}
+--- !u!1001 &1251138709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4049.3235
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 316.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3084.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1 &1252987654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3556,79 @@ Transform:
   m_Father: {fileID: 519036979}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1469246655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4049.3235
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 314.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3049.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1001 &1485284581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3601,6 +3970,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e4c00bdfb34213488395610ee5a6d9d, type: 3}
+--- !u!1001 &1521646531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4020.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 312.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3070.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1 &1538993628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5324440196608975208, guid: bca8dc9c77ba91d44ac656a56767dcb9,
@@ -3725,26 +4167,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1929805030, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929805033, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
-      propertyPath: m_Radius
-      value: 1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929805033, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
-      propertyPath: m_Center.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929805033, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
-      propertyPath: m_Center.y
-      value: 1.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929805033, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
-      propertyPath: m_Center.z
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 8469418064148170214, guid: a90644b2e9e5d66439114baffaf00a0f,
         type: 3}
       propertyPath: m_Name
@@ -4109,6 +4531,79 @@ Transform:
   m_Father: {fileID: 97234752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1804597280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 321097020, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1299951307}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4016.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 312.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3049.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730625471432164250, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780924545836249481, guid: fdb150df47cb25c4499c79f861d4bec8,
+        type: 3}
+      propertyPath: m_Name
+      value: Piranha Plant (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb150df47cb25c4499c79f861d4bec8, type: 3}
 --- !u!1 &1819315441
 GameObject:
   m_ObjectHideFlags: 0

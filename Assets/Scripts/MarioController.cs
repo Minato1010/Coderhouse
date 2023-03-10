@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using UnityEngine.Events;
 public class MarioController : MonoBehaviour
 {
 
@@ -40,25 +41,26 @@ public class MarioController : MonoBehaviour
     protected float cameraSoundDelay;
 
     protected Vector3 idlePosition = new Vector3(0, 0, 0);
+    public event Action<float> OnHealthChange;
+     public UnityEvent OnDeath;
 
     void Start()
 
     {
         speed = 10f;
         currentHealth = maxHealth;
-        
+        Debug.Log("Publisher OnDeath Player, OnHealthChange");
     }
    
 
     void Update()
     {
-        if (Time.time>5.5f)
-        {
+        
             
             Move(GetMoveVector());
            
 
-        }  
+          
 
         
 
@@ -158,17 +160,19 @@ public class MarioController : MonoBehaviour
     }
     
 
-    public void Heal(float healing)
+    public void Heal(int healing)
     {
-
+        healing = 1;
         if (currentHealth < 10)
         {
             currentHealth += healing;
+
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
             }
         }
+        OnHealthChange?.Invoke(currentHealth);
 
     }
     public void ReceiveDamage(float damage)
@@ -187,22 +191,23 @@ public class MarioController : MonoBehaviour
             animator.SetTrigger("Died");
             if (timeToDestroy <=Time.time && Died==false)
             {
-                
+                OnDeath?.Invoke();
                 Destroy(gameObject);
             }
             else if(Died==true)
             {
-                timeToDestroy = Time.time+4.5f;
+                timeToDestroy = Time.time+3.5f;
                 Died = false;
             }
             
                 
            
         }
+        OnHealthChange?.Invoke(currentHealth);
 
     }
-    
-    
+
+
 
     public void Jumping()
     {

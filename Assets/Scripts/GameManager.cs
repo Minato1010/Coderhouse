@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,10 +23,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform StarPosition;
     public AudioClip FileSelect;
     public AudioClip peachCastle;
-    
-    
+
+
     private void Awake()
     {
+        
+
         if (instance != null)
         {
             Destroy(gameObject);
@@ -33,12 +37,17 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        
+        StarScript.OnStarCollected += StarCollected;
+        KingBobOmb.OnKingDefeated += KingBobOmbDefeated;
+        goombaPrefab.OnEnemyDied.AddListener(CharacterScore);
+        Debug.Log("Suscriber EnemyDied, Star,Coin,King");
     }
-   
+  
 
-    public void CharacterScore(float ScoreAmount)
+    public void CharacterScore()
     {
-        score += ScoreAmount;
+        score += 50;
         Debug.Log("Your Score: " + score);
 
     }
@@ -60,11 +69,11 @@ public class GameManager : MonoBehaviour
         
         
     }
-    public void StarCollected(int stars)
+    public void StarCollected()
     {
         var mario = marioTransform.GetComponent<MarioController>();
 
-        starsCollected += stars;
+        starsCollected += 1;
         audioSource.Stop();
         mario.transform.position = insideCastle.position;
 

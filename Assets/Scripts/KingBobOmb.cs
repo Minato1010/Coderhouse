@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class KingBobOmb : MonoBehaviour
 {
     [SerializeField] private Animator KingAnimator;
@@ -15,11 +15,16 @@ public class KingBobOmb : MonoBehaviour
    [SerializeField] private bool atacking;
     private float timeToAtack;
     private bool rotate;
-    private float rotateTime;
+    [SerializeField] private EnemyData enemyData;
+    private float damage;
+    public static event Action OnKingDefeated;
     private void Start()
     {
         character = GameManager.instance.marioTransform;
+        maxHealth = enemyData.health;
         currentHealth = maxHealth;
+        damage = enemyData.damage;
+
     }
     private void Update()
     {
@@ -42,14 +47,7 @@ public class KingBobOmb : MonoBehaviour
             transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(transform.position), Quaternion.LookRotation(vectorToChar), 4);
             rotate = true;
         }
-        /*    rotate = false;
-        }
-        else if (rotate == false)
-        {
-            rotateTime = 1.5f + Time.time;
-            rotate = true;
-
-        }*/
+        
       
         if (timeToAtack<=Time.time && atacking==true)
         {
@@ -58,7 +56,7 @@ public class KingBobOmb : MonoBehaviour
         else if (atacking == false)
         {
             atacking = true;
-            timeToAtack = 4f + Time.time;
+            timeToAtack = 3f + Time.time;
             KingAnimator.SetBool("IsWalking", true);
 
         }
@@ -108,11 +106,14 @@ public class KingBobOmb : MonoBehaviour
         if (collision.collider.gameObject.tag == "Player")
         {
             var marioControl = collision.collider.GetComponent<MarioController>();
-                marioControl.ReceiveDamage(.4f);              
+            if (timeToAtack <= Time.time)
+            {
+                marioControl.ReceiveDamage(damage);
+            }
                
             
 
-            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * 3, ForceMode.Impulse);
+            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * 1.6f, ForceMode.Impulse);
             marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.up) * 1, ForceMode.Impulse);
 
         }
@@ -136,7 +137,8 @@ public class KingBobOmb : MonoBehaviour
     {
         currentHealth -= damage;
         if (currentHealth <= 0){
-            GameManager.instance.KingBobOmbDefeated();
+            OnKingDefeated?.Invoke();
+            Debug.Log("Publisher KingDefeated");
             Destroy(gameObject);
         }
     }

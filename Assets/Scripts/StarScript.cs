@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StarScript : MonoBehaviour
 {
+    public static Action OnStarCollected;
 
-    public int StarCollected=1;
-   
 
-    
+    private void Awake()
+    {
+        Debug.Log("Publisher OnStarCollected");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            GameManager.instance.StarCollected(StarCollected);
+            OnStarCollected?.Invoke();
+            
             Destroy(gameObject);
         }
     }

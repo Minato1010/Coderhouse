@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor.UI;
 using UnityEngine.UI;
 
+
 public class UIController : CoinScript
 {
     [SerializeField] private TMP_Text coins;
@@ -25,29 +26,32 @@ public class UIController : CoinScript
     [SerializeField] private Canvas UI;
     [SerializeField] private Image LIFE;
     private Sprite currentLife;
+    [SerializeField] private MarioController characterController;
+    
 
+
+
+
+    
     private void Start()
     {
         currentLife = life8;
+        characterController.OnHealthChange += Life;
+        StarScript.OnStarCollected += AddStars;
+        OnCoinCollected.AddListener(AddCoins);
+        Debug.Log("Suscriber, OnStarCollected, playerDied");
     }
-    private void Update()
-    {
-        AddCoins();
+   
 
-        
-        AddStars();
-        if (GameManager.instance.marioTransform.currentHealth <= 0)
-        {
-            GameOver.gameObject.SetActive(true);
-        }
-        Life();
+    public void PlayerDied()
+    {
+        GameOver.gameObject.SetActive(true);
     }
-
-    private void AddCoins()
+    private void AddCoins(int coin)
     {
-        coinsCollected = GameManager.instance.coins;
+        coin = GameManager.instance.coins;
        
-        coins.text = "x " + coinsCollected;
+        coins.text = "x " + coin;
     }
     private void AddStars()
     {
@@ -55,9 +59,9 @@ public class UIController : CoinScript
 
         stars.text = "x " + starsCollected; 
     }
-    private void Life()
+    private void Life(float marioLife)
     {
-        float marioLife=GameManager.instance.marioTransform.GetHealth();
+        
         if (marioLife >= 7)
         {
             currentLife = life8;

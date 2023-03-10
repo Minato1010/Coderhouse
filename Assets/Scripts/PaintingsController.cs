@@ -25,14 +25,18 @@ public class PaintingsController : MonoBehaviour
 
             if (newPositions[worldToGo] == newPosition[worldToGo] )
             {
+               
+                    audioSource.PlayOneShot(bobOmb);
+                
                 if (worldToGo == newPosition.Length)
                 {
                     worldToGo = 0;
                     other.gameObject.transform.position = newPosition[worldToGo].position;
+                    
 
                 }
                 other.gameObject.transform.position = newPosition[worldToGo].position;
-                audioSource.PlayOneShot(bobOmb);
+               
                 
             }
 
