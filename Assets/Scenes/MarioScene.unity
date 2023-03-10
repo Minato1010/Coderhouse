@@ -1221,6 +1221,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2007282055}
@@ -1231,13 +1246,43 @@ PrefabInstance:
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -2107,6 +2152,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2007282055}
@@ -2117,13 +2177,43 @@ PrefabInstance:
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -2750,8 +2840,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -2765,13 +2870,43 @@ PrefabInstance:
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -3076,12 +3211,12 @@ PrefabInstance:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -3090,33 +3225,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2007282055}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2007282055}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Heal
+      value: AddCoins
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MarioController, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: MarioController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -3130,12 +3290,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
@@ -3997,6 +4167,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2093752724}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KingBobOmbDefeated
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929805031, guid: a90644b2e9e5d66439114baffaf00a0f, type: 3}
+      propertyPath: OnKingDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8469418064148170214, guid: a90644b2e9e5d66439114baffaf00a0f,
         type: 3}
       propertyPath: m_Name
@@ -4204,6 +4402,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2007282055}
@@ -4214,13 +4427,43 @@ PrefabInstance:
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -4712,12 +4955,17 @@ PrefabInstance:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -4731,13 +4979,28 @@ PrefabInstance:
       objectReference: {fileID: 2093752724}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -4746,12 +5009,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
@@ -4930,6 +5208,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2093752724}
@@ -4940,13 +5233,28 @@ PrefabInstance:
       objectReference: {fileID: 2007282055}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CoinsCollected
+      value: AddCoins
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
       objectReference: {fileID: 0}
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -4957,6 +5265,21 @@ PrefabInstance:
         type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MarioController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
@@ -5279,6 +5602,7 @@ MonoBehaviour:
   StarPosition: {fileID: 387987588}
   FileSelect: {fileID: 8300000, guid: ceb7b990e46a8174e9101aea1f3fa87d, type: 3}
   peachCastle: {fileID: 8300000, guid: a638173a10d3c984cbb4bf720cb1a356, type: 3}
+  starScript: {fileID: 0}
 --- !u!4 &2093752725
 Transform:
   m_ObjectHideFlags: 0
@@ -5604,6 +5928,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2007282055}
@@ -5612,6 +5951,41 @@ PrefabInstance:
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2093752724}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8100186268888628968}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AddCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
+        type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: m_Name
@@ -6188,9 +6562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6875b8fad8415ff45ad444dd71f753a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCoinCollected:
-    m_PersistentCalls:
-      m_Calls: []
   coins: {fileID: 8100186269379187014}
   stars: {fileID: 8100186268787144573}
   GameOver: {fileID: 8100186268274198349}

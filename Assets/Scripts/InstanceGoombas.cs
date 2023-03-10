@@ -16,7 +16,7 @@ public class InstanceGoombas : MonoBehaviour
     private void Start()
     {
         GoombaPrefab = GameManager.instance.goombaPrefab;
-        GoombaPrefab.OnEnemyDied.AddListener(AddGoombas);
+        GoombaPrefab.OnEnemyDied += AddGoombas;
 
         
     }
