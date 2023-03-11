@@ -46,7 +46,7 @@ public class BobOmb : EnemyScript
         }
         else if(GoToPlayer == false)
         {
-           this.Patrol();
+            Patrol();
         }
         
     }

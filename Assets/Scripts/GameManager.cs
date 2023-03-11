@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform StarPosition;
     public AudioClip FileSelect;
     public AudioClip peachCastle;
+    [SerializeField] private StarScript starScript;
 
     private void Awake()
     {
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     public void CharacterScore()
     {
         score += 50;
-        Debug.Log("Score" + score);
+        Debug.Log("Your Score: " + score);
 
     }
    public void AddCoins()

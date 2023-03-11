@@ -99,7 +99,7 @@ public class EnemyScript : MonoBehaviour
                 }
                 else
                 {
-                    PatrolGoomba();
+                    Patrol();
                 }
                 
                 break;
@@ -192,7 +192,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void PatrolGoomba()
+    private void Patrol()
     {
         var wayToGo = UnityEngine.Random.Range(0, 5);
         var currentWaypoint = goombaPositions[i];
