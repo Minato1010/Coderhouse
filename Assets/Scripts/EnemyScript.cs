@@ -48,7 +48,7 @@ public class EnemyScript : MonoBehaviour
     public bool beDestroyed = true;
    
     private float delayToDamage = 1f;
-    public UnityEvent OnEnemyDied;
+    public static event Action OnEnemyDied;
     
     void Start()
     {
@@ -99,7 +99,7 @@ public class EnemyScript : MonoBehaviour
                 }
                 else
                 {
-                    Patrol();
+                    PatrolGoomba();
                 }
                 
                 break;
@@ -192,7 +192,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void Patrol()
+    private void PatrolGoomba()
     {
         var wayToGo = UnityEngine.Random.Range(0, 5);
         var currentWaypoint = goombaPositions[i];

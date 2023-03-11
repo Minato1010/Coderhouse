@@ -2589,6 +2589,9 @@ MonoBehaviour:
   afterDefeatBobOmb: {fileID: 0}
   marioIsJumping: 0
   IsKicking: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1299951310
 MonoBehaviour:
   m_ObjectHideFlags: 0
