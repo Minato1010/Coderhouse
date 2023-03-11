@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform StarPosition;
     public AudioClip FileSelect;
     public AudioClip peachCastle;
-    [SerializeField] private StarScript starScript;
 
     private void Awake()
     {
@@ -45,21 +44,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        goombaPrefab.OnEnemyDied += CharacterScore;
+        EnemyScript.OnEnemyDied += CharacterScore;
      
     }
     public void CharacterScore()
     {
         score += 50;
-        Debug.Log("Your Score: " + score);
-        Debug.LogWarning("Score" + score);
+        Debug.Log("Score" + score);
 
     }
    public void AddCoins()
     {
         
         coins +=1;
-        Debug.LogWarning("Coins " + coins);
     }
 
     public void KingBobOmbDefeated()
