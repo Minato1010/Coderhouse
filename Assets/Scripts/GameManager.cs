@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform StarPosition;
     public AudioClip FileSelect;
     public AudioClip peachCastle;
-    [SerializeField] private StarScript starScript;
 
     private void Awake()
     {
