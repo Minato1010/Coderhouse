@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6875b8fad8415ff45ad444dd71f753a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - coins: {instanceID: 0}
+  - stars: {instanceID: 0}
+  - GameOver: {instanceID: 0}
+  - life8: {fileID: -483129462, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life7: {fileID: -1459826975, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life6: {fileID: -1950891967, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life5: {fileID: 431992372, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life4: {fileID: -1131752631, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life3: {fileID: -1161810600, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life2: {fileID: -531504439, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life1: {fileID: 1332091260, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  - life0: {fileID: 1676875695, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
