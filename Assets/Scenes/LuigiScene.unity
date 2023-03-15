@@ -1233,33 +1233,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1730089395}
     - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8100186268888628968}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerDied
-      objectReference: {fileID: 0}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1299951305, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1299951310, guid: fc1c027d2f6457641be624b723815bb1, type: 3}
       propertyPath: camera1
       value: 
@@ -5791,8 +5767,6 @@ MonoBehaviour:
   StarPosition: {fileID: 387987588}
   FileSelect: {fileID: 8300000, guid: ceb7b990e46a8174e9101aea1f3fa87d, type: 3}
   peachCastle: {fileID: 8300000, guid: a638173a10d3c984cbb4bf720cb1a356, type: 3}
-  starScript: {fileID: 9157872903193472902, guid: 9f71247b3ecf6d449816c0228115bd2a,
-    type: 3}
 --- !u!4 &2093752725
 Transform:
   m_ObjectHideFlags: 0
