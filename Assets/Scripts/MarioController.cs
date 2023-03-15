@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 public class MarioController : MonoBehaviour
 {
 
@@ -28,6 +30,7 @@ public class MarioController : MonoBehaviour
     
     [SerializeField] protected AudioClip marioHurt;
     [SerializeField] protected AudioClip GameOver;
+    [SerializeField] protected VolumeProfile VolProf;
     public Transform afterDefeatBobOmb;
 
 
@@ -43,6 +46,9 @@ public class MarioController : MonoBehaviour
     protected Vector3 idlePosition = new Vector3(0, 0, 0);
     public event Action<float> OnHealthChange;
      public UnityEvent OnDeath;
+    protected bool VolumeChanged;
+    protected float timeToChangePost;
+    protected bool PostChange = true;
 
     void Start()
 
@@ -66,7 +72,22 @@ public class MarioController : MonoBehaviour
 
         protected void Move(Vector3 MoveDir)
     {
-       
+        if (timeToChangePost <= Time.time && PostChange == false)
+        {
+            if (VolProf.TryGet(out Vignette vignetteComponent))
+            {
+                vignetteComponent.color.value = Color.black;
+                VolumeChanged = false;
+
+            }
+            PostChange = true;
+        }
+        else if (PostChange == true)
+        {
+            timeToChangePost = 1 + Time.time;
+            PostChange = false;
+        }
+        
 
         var transform1 = transform;
         transform1.position += (MoveDir.x * transform1.right + MoveDir.z * transform1.forward) * (speed * Time.deltaTime);        
@@ -106,6 +127,8 @@ public class MarioController : MonoBehaviour
         
 
     }
+   
+
 
     private float GetRotationAmount()
     {
@@ -169,10 +192,25 @@ public class MarioController : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
 
-       
+        if (damage != 0)
+        {
+            if (VolProf.TryGet(out Vignette vignetteComponent))
+            {
+                if (VolumeChanged != true)
+                {
+                    vignetteComponent.color.value = Color.red;
+                    vignetteComponent.intensity.value = .45f;
+                    vignetteComponent.smoothness.value = .14f;
+                    VolumeChanged = true;
+                }
+                
+            }
+
+        }
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+           
             audioSource.PlayOneShot(marioHurt);
         }
         if (currentHealth <= 0)
