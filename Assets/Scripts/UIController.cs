@@ -6,14 +6,13 @@ using UnityEditor.UI;
 using UnityEngine.UI;
 
 
-public class UIController : CoinScript
+public class UIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text coins;
     [SerializeField] private TMP_Text stars;
-     private int coinsCollected;
     private int starsCollected;
     [SerializeField] private Image GameOver;
-   
+    private int coinsCollected;
     [SerializeField] private Sprite life8;
     [SerializeField] private Sprite life7;
     [SerializeField] private Sprite life6;
@@ -27,7 +26,7 @@ public class UIController : CoinScript
     [SerializeField] private Image LIFE;
     private Sprite currentLife;
     [SerializeField] private MarioController characterController;
-    
+
 
 
 
@@ -37,23 +36,23 @@ public class UIController : CoinScript
     {
         currentLife = life8;
         characterController.OnHealthChange += Life;
-        StarScript.OnStarCollected += AddStars;
-        OnCoinCollected.AddListener(AddCoins);
+        StarScript.OnStarCollected+=AddStars;
+       
         Debug.Log("Suscriber, OnStarCollected, playerDied");
     }
-   
 
+    
     public void PlayerDied()
     {
         GameOver.gameObject.SetActive(true);
     }
-    private void AddCoins(int coin)
+    public void AddCoins()
     {
-        coin = GameManager.instance.coins;
+        coinsCollected = GameManager.instance.coins;
        
-        coins.text = "x " + coin;
+        coins.text = "x " + coinsCollected;
     }
-    private void AddStars()
+    private void AddStars()     
     {
         starsCollected = GameManager.instance.starsCollected;
 

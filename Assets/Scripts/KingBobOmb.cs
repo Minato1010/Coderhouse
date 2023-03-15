@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 public class KingBobOmb : MonoBehaviour
 {
     [SerializeField] private Animator KingAnimator;
@@ -17,7 +18,7 @@ public class KingBobOmb : MonoBehaviour
     private bool rotate;
     [SerializeField] private EnemyData enemyData;
     private float damage;
-    public static event Action OnKingDefeated;
+    public UnityEvent OnKingDefeated;
     private void Start()
     {
         character = GameManager.instance.marioTransform;

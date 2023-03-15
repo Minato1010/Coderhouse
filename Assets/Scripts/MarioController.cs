@@ -54,17 +54,8 @@ public class MarioController : MonoBehaviour
    
 
     void Update()
-    {
-        
-            
-            Move(GetMoveVector());
-           
-
-          
-
-        
-
-        
+    {                  
+            Move(GetMoveVector());        
     }
     public float GetHealth()
     {
@@ -196,7 +187,7 @@ public class MarioController : MonoBehaviour
             }
             else if(Died==true)
             {
-                timeToDestroy = Time.time+3.5f;
+                timeToDestroy = Time.time+2.5f;
                 Died = false;
             }
             

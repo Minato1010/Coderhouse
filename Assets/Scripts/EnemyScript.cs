@@ -48,7 +48,7 @@ public class EnemyScript : MonoBehaviour
     public bool beDestroyed = true;
    
     private float delayToDamage = 1f;
-    public UnityEvent OnEnemyDied;
+    public static event Action OnEnemyDied;
     
     void Start()
     {

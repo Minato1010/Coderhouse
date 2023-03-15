@@ -7,7 +7,7 @@ public class CoinScript : MonoBehaviour
 {
     protected bool Healing = true;
     protected int CoinCollected = 1;
-    public UnityEvent<int> OnCoinCollected;
+    public UnityEvent OnCoinCollected;
     private void Awake()
     {
         Debug.Log("Publisher OnCoinCollected");
@@ -20,7 +20,7 @@ public class CoinScript : MonoBehaviour
 
             if (Healing == true)
             {
-                OnCoinCollected?.Invoke(1);
+                OnCoinCollected?.Invoke();
                 
                 Healing = false;
                 Destroy(gameObject);
