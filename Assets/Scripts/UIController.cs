@@ -54,7 +54,7 @@ public class UIController : MonoBehaviour
     }
     private void AddStars()     
     {
-        starsCollected = GameManager.instance.starsCollected;
+        starsCollected += GameManager.instance.starsCollected;
 
         stars.text = "x " + starsCollected; 
     }
