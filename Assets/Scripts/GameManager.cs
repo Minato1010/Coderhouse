@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         var mario = marioTransform.GetComponent<MarioController>();
 
-        starsCollected = 1;
+        starsCollected += 1;
         audioSource.Stop();
         mario.transform.position = insideCastle.position;
 

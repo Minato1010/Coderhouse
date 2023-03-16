@@ -2586,25 +2586,9 @@ MonoBehaviour:
   cameraMoving: {fileID: 8300000, guid: f3dcd21102c7a634c92e8ebb594e23d0, type: 3}
   marioHurt: {fileID: 8300000, guid: 4709cee75d6fbc6448b828b1542e9e37, type: 3}
   GameOver: {fileID: 8300000, guid: 11a6a8e46e45fda4e9ac3e6b7161acb6, type: 3}
-  VolProf: {fileID: 0}
   afterDefeatBobOmb: {fileID: 0}
   marioIsJumping: 0
   IsKicking: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: PlayerDied
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1299951310
 MonoBehaviour:
   m_ObjectHideFlags: 0
