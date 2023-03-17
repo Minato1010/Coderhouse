@@ -31,9 +31,9 @@ ExportedObj/
 *.csproj
 *.unityproj
 *.sln
-
+*.suo
 *.tmp
-
+*.user
 *.userprefs
 *.pidb
 *.booproj
@@ -58,6 +58,3 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-/UserSettings
-/ProjectSettings
-/Assets
