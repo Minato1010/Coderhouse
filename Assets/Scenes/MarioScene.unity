@@ -3178,26 +3178,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2007282055}
@@ -3211,41 +3191,6 @@ PrefabInstance:
       propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 8100186268888628968}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Heal
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddCoins
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: AddCoins
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486338283632164655, guid: 7d1aa6c7286837f46a58384280a00f9b,
-        type: 3}
-      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 847674774726958528, guid: 7d1aa6c7286837f46a58384280a00f9b,
         type: 3}
       propertyPath: m_Name
@@ -5415,26 +5360,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db0fabb8b1f9d6478744d91a89435e3, type: 3}
---- !u!1 &1840209185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 723287699466974529, guid: 1db0fabb8b1f9d6478744d91a89435e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1840209184}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1840209186
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840209185}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: e5b197b69971b714e9bb8a1de46db4e2, type: 3}
 --- !u!1 &1908659207
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,11 +6223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1064757666, guid: bf9f419ca202a1c44badfce89719b932, type: 3}
-      propertyPath: VolProf
-      value: 
-      objectReference: {fileID: 11400000, guid: ac161cb58f023834c93118b98ac33e7f,
-        type: 2}
     - target: {fileID: 1064757666, guid: bf9f419ca202a1c44badfce89719b932, type: 3}
       propertyPath: afterDefeatBobOmb
       value: 

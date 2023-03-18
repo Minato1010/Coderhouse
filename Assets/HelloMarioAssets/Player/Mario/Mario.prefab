@@ -2366,6 +2366,7 @@ MonoBehaviour:
   cameraMoving: {fileID: 8300000, guid: f3dcd21102c7a634c92e8ebb594e23d0, type: 3}
   marioHurt: {fileID: 8300000, guid: 79017aa55eadb2b48aaab890fe076cef, type: 3}
   GameOver: {fileID: 8300000, guid: 11a6a8e46e45fda4e9ac3e6b7161acb6, type: 3}
+  VolProf: {fileID: 11400000, guid: ac161cb58f023834c93118b98ac33e7f, type: 2}
   afterDefeatBobOmb: {fileID: 0}
   marioIsJumping: 0
   IsKicking: 0

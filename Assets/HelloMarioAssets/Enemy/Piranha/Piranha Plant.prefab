@@ -478,7 +478,6 @@ MonoBehaviour:
   goombaAnimator: {fileID: 0}
   piranhaAnimator: {fileID: 1136402765}
   goombaRigidbody: {fileID: 0}
-  goombaPosition: {fileID: 0}
   MarioDamage: 1
   IsWalking: 0
   vectorZero: {x: 0, y: 0, z: 0}
@@ -493,4 +492,5 @@ MonoBehaviour:
   layerToCollideWith:
     serializedVersion: 2
     m_Bits: 512
+  GoToPlayer: 0
   beDestroyed: 1
