@@ -57,7 +57,7 @@ public class KingBobOmb : MonoBehaviour
         else if (atacking == false)
         {
             atacking = true;
-            timeToAtack = 3f + Time.time;
+            timeToAtack = 1f + Time.time;
             KingAnimator.SetBool("IsWalking", true);
 
         }
