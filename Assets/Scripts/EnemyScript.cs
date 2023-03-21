@@ -27,7 +27,6 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float MarioDamage = 1;
     [SerializeField] private bool IsWalking;
     [SerializeField] private Vector3 vectorZero= new Vector3(0,0,0);
-    [SerializeField] private bool marioIsJumping;
     [SerializeField] private Transform[] goombaPositions;
     [SerializeField] private float ThresholdDistance = 2f;
      private int i = 0;
@@ -155,7 +154,7 @@ public class EnemyScript : MonoBehaviour
         
 
         
-        if (IsWalking == true && marioIsJumping == false)
+        if (IsWalking == true )
         {
             if (watchedMario == true)
             {
@@ -314,14 +313,7 @@ private void LookAtPlayer()
                         timeToAtack = 2 + Time.time;
                         Atack = false;
                     }
-                    if (marioController.marioIsJumping ==true)
-                    {
-                        marioIsJumping=true;
-                    }
-                    else
-                    {
-                        marioIsJumping = false;
-                    }
+                    
 
                     break;
 

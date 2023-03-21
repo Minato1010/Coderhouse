@@ -114,8 +114,8 @@ public class KingBobOmb : MonoBehaviour
                
             
 
-            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * 1.6f, ForceMode.Impulse);
-            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.up) * 1, ForceMode.Impulse);
+            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * .6f, ForceMode.Impulse);
+            marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.up) * 1.1f, ForceMode.Impulse);
 
         }
 
@@ -125,7 +125,7 @@ public class KingBobOmb : MonoBehaviour
         if (other.gameObject.tag == "Player" && other.GetComponent<MarioController>().IsKicking == true)
         {
             
-                ReceiveDamage(3);
+                ReceiveDamage(2);
                 KingAnimator.SetTrigger("Atacked");
                 KingAnimator.SetBool("IsWalking", false);
                 KingAnimator.SetBool("Talking", false);

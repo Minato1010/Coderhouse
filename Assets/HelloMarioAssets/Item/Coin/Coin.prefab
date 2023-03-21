@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f49e2fdd06cf68d448a06e7cfe3d2f6e, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f49e2fdd06cf68d448a06e7cfe3d2f6e, type: 3}
       propertyPath: m_RootOrder
@@ -156,3 +156,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  coinAudio: {fileID: 8300000, guid: 3b4f2f462d44b774b95f13793112083f, type: 3}

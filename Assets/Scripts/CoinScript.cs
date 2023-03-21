@@ -8,6 +8,7 @@ public class CoinScript : MonoBehaviour
     protected bool Healing = true;
     protected int CoinCollected = 1;
     public UnityEvent OnCoinCollected;
+    public AudioClip coinAudio;
     private void Awake()
     {
         Debug.Log("Publisher OnCoinCollected");
@@ -16,7 +17,7 @@ public class CoinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            var marioControler = other.GetComponent<MarioController>();
+            GameManager.instance.audioSource.PlayOneShot(coinAudio);
 
             if (Healing == true)
             {

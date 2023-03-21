@@ -46,6 +46,7 @@ public class UIController : MonoBehaviour
     {
         GameOver.gameObject.SetActive(true);
     }
+    
     public void AddCoins()
     {
         coinsCollected = GameManager.instance.coins;
@@ -54,7 +55,7 @@ public class UIController : MonoBehaviour
     }
     private void AddStars()     
     {
-        starsCollected = GameManager.instance.starsCollected;
+        starsCollected += 1;
 
         stars.text = "x " + starsCollected; 
     }

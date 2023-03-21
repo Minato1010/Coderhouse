@@ -244,11 +244,27 @@ public class MarioController : MonoBehaviour
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
         
     var collided = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .8f);
+
+        var jumping = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out RaycastHit raycastInfo, 20f);
+
+        if (jumping && Input.GetKeyDown(KeyCode.G))
+        {
+            animator.SetTrigger("JumpSmashIn");
+
+        }
+
         if (collided)
         {
+            if (marioIsJumping == true && Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
+            {
+                animator.SetTrigger("jumpingHigh");
+                marioRigidbody.AddForce(transform.up * 11, ForceMode.Impulse);
+                audioSource.PlayOneShot(marioYahoo);
+                marioIsJumping = false;
 
+            }
 
-            if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
+            else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == false && marioIsJumping==false)
             {
                 animator.SetTrigger("jumping");
                 animator.SetBool("IsWalking", false);
@@ -257,6 +273,7 @@ public class MarioController : MonoBehaviour
 
                 audioSource.PlayOneShot(marioYahoo);
                 marioIsJumping = true;
+               
             }
             else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == true)
             {
@@ -271,11 +288,9 @@ public class MarioController : MonoBehaviour
                 marioRigidbody.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
                 Kicking(false);
             }
-            else
-            {
-                marioIsJumping = false;
-            }
+            
         }
+        
        
     }
 
