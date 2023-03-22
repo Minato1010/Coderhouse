@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.Events;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
     public AudioClip goombaFindMario;
     public EnemyScript goombaPrefab;
     public Transform[] goombaPositions;
+    public List<Transform> KoopaBossPositions;
+    public GameObject PanelUi;
+    public GameObject PanelText;
+    public TMP_Text textTalk;
+
     public bool KingBobOmbDied;
     [SerializeField] private Transform insideCastle;
     public int coins;
@@ -27,6 +33,8 @@ public class GameManager : MonoBehaviour
     public Transform StarPositionCoins;
     [SerializeField] KoopaBossController KoopaBoss;
     public Transform koopaPosition;
+    public AudioClip raceMusic;
+    public Transform worldToGo;
     
 
     private void Awake()
@@ -66,11 +74,12 @@ public class GameManager : MonoBehaviour
 
     public void KingBobOmbDefeated()
     {
-        
-          
-            Debug.Log("Victory");
+        Instantiate(KoopaBoss);
+        KoopaBoss.transform.position = koopaPosition.position;
+
+        Debug.Log("Victory");
             Instantiate(Star, StarPosition);
-        Instantiate(KoopaBoss, koopaPosition);
+        
 
             KingBobOmbDied = true;
         
@@ -78,11 +87,14 @@ public class GameManager : MonoBehaviour
     }
     public void StarCollected()
     {
-        var mario = marioTransform.GetComponent<MarioController>();
 
         starsCollected = 1;
         audioSource.Stop();
-        mario.transform.position = PaintingsController.paintingController.currentPosition[PaintingsController.paintingController.worldToGo].position;
+        audioSource.PlayOneShot(marioTransform.StarCollected);
+
+        audioSource.Stop();
+        
+        marioTransform.gameObject.transform.position= worldToGo.position;
 
         audioSource.PlayOneShot(peachCastle);
 

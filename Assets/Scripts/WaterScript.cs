@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class WaterScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionStay(Collision collision)
     {
-        
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            GameManager.instance.marioTransform.animator.SetBool("Swimming", true);
+
+
+
+        }
+
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            GameManager.instance.marioTransform.animator.SetBool("Swimming", false);
+
+
+        }
+
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

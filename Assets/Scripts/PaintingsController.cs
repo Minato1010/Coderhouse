@@ -28,7 +28,7 @@ public class PaintingsController : MonoBehaviour
             
             if (newPositions[worldToGo] == newPosition[worldToGo] )
             {
-               
+                GameManager.instance.worldToGo = currentPosition[worldToGo];   
                     audioSource.PlayOneShot(audioPlace);               
 
                 other.gameObject.transform.position = newPosition[worldToGo].position;

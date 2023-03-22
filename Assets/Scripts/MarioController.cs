@@ -13,7 +13,7 @@ public class MarioController : MonoBehaviour
 
     [SerializeField] protected float maxHealth = 8;
     public float currentHealth;
-    [SerializeField] protected Animator animator;
+    [SerializeField] public Animator animator;
 
     public Rigidbody marioRigidbody;
     [SerializeField] protected float forceAmount;
@@ -31,8 +31,10 @@ public class MarioController : MonoBehaviour
     [SerializeField] protected AudioClip marioHurt;
     [SerializeField] protected AudioClip GameOver;
     [SerializeField] protected VolumeProfile VolProf;
+    [SerializeField] protected AudioClip jumpHigh;
+    public AudioClip StarCollected;
     public Transform afterDefeatBobOmb;
-
+    public bool canMove=true;
 
     public bool marioIsJumping;
 
@@ -60,8 +62,12 @@ public class MarioController : MonoBehaviour
    
 
     void Update()
-    {                  
-            Move(GetMoveVector());        
+    {
+        if (canMove==true)
+        {
+            Move(GetMoveVector());
+
+        }
     }
     public float GetHealth()
     {
@@ -70,7 +76,7 @@ public class MarioController : MonoBehaviour
     
    
 
-        protected void Move(Vector3 MoveDir)
+        public void Move(Vector3 MoveDir)
     {
         if (timeToChangePost <= Time.time && PostChange == false)
         {
@@ -259,7 +265,7 @@ public class MarioController : MonoBehaviour
             {
                 animator.SetTrigger("jumpingHigh");
                 marioRigidbody.AddForce(transform.up * 11, ForceMode.Impulse);
-                audioSource.PlayOneShot(marioYahoo);
+                audioSource.PlayOneShot(jumpHigh);
                 marioIsJumping = false;
 
             }
