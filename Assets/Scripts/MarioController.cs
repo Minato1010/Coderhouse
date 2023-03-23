@@ -39,6 +39,7 @@ public class MarioController : MonoBehaviour
     public bool marioIsJumping;
 
     public bool IsKicking;
+    public bool Swimming;
     
     protected bool Died = true;
     protected float timeToDestroy;
@@ -51,6 +52,7 @@ public class MarioController : MonoBehaviour
     protected bool VolumeChanged;
     protected float timeToChangePost;
     protected bool PostChange = true;
+    [SerializeField] protected Transform jumpPosition;
 
     void Start()
 
@@ -249,7 +251,7 @@ public class MarioController : MonoBehaviour
             
             var jumpToFront = Input.GetKeyDown(KeyCode.F);
         
-    var collided = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .8f);
+    var collided = Physics.Raycast(jumpPosition.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .3f);
 
         var jumping = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out RaycastHit raycastInfo, 20f);
 
@@ -264,7 +266,7 @@ public class MarioController : MonoBehaviour
             if (marioIsJumping == true && Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
             {
                 animator.SetTrigger("jumpingHigh");
-                marioRigidbody.AddForce(transform.up * 11, ForceMode.Impulse);
+                marioRigidbody.AddForce(transform.up * 10, ForceMode.Impulse);
                 audioSource.PlayOneShot(jumpHigh);
                 marioIsJumping = false;
 

@@ -196,7 +196,6 @@ MonoBehaviour:
   MarioDamage: 1
   IsWalking: 0
   vectorZero: {x: 0, y: 0, z: 0}
-  marioIsJumping: 0
   goombaPositions: []
   ThresholdDistance: 2
   enemyData: {fileID: 11400000, guid: 4984c9185605706429506d81c4244232, type: 2}
@@ -218,3 +217,4 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 4984c9185605706429506d81c4244232, type: 2}
   BobOmbAnimator: {fileID: 6978524440198757027}
   bobOmbRigid: {fileID: 7961321706792728537}
+  explosionSound: {fileID: 8300000, guid: c8aaed5a6e034524eac528b4feedf0b6, type: 3}

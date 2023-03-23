@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform insideCastle;
     public int coins;
     public int starsCollected;
-    [SerializeField] private StarScript Star;
-    [SerializeField] private Transform StarPosition;
+   public StarScript Star;
+    public Transform StarPosition;
     public AudioClip FileSelect;
     public AudioClip peachCastle;
     public int StarCoinsCollected;
     public Transform StarPositionCoins;
-    [SerializeField] KoopaBossController KoopaBoss;
+    public KoopaBossController KoopaBoss;
     public Transform koopaPosition;
     public AudioClip raceMusic;
     public Transform worldToGo;

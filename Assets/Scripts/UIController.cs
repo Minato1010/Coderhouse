@@ -62,27 +62,27 @@ public class UIController : MonoBehaviour
     private void Life(float marioLife)
     {
         
-        if (marioLife >= 7)
+        if (marioLife == 8)
         {
             currentLife = life8;
 
         }
-        else if(marioLife>=6 && marioLife < 7)
+        else if(marioLife>=7 && marioLife < 8)
         {
             currentLife = life7;
 
         }
-        else if (marioLife >= 5 && marioLife < 6)
+        else if (marioLife >= 6 && marioLife < 7)
         {
             currentLife = life6;
 
         }
-        else if (marioLife >= 4 && marioLife < 5)
+        else if (marioLife >= 5 && marioLife < 6)
         {
             currentLife = life5;
 
         }
-        else if (marioLife >= 4 && marioLife < 4)
+        else if (marioLife >= 4 && marioLife < 5)
         {
             currentLife = life4;
 
@@ -102,7 +102,7 @@ public class UIController : MonoBehaviour
             currentLife = life1;
 
         }
-        else if (marioLife < 1)
+        else if (marioLife < 0)
         {
             currentLife = life0;
         }

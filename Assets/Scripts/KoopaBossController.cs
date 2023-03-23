@@ -14,17 +14,19 @@ public class KoopaBossController : MonoBehaviour
     [SerializeField] private GameObject PanelText;
     [SerializeField] private TMP_Text textTalk;
     private int TextsPassed;
-    private Action<int> ChangeText;
+    private Action<int> OnChangeText;
     [SerializeField] Rigidbody koopaRigidbody;
     [SerializeField] Animator koopaAnimator;
-    private float speed = 16;
-    private bool playMusic;
+    private float speed = 13;
+    public static bool playMusic;
     private bool notMove;
+
+    private bool textFinishRace;
 
     private void Start()
     {
         KoopaPositions = GameManager.instance.KoopaBossPositions;
-        ChangeText += ChangingText;
+        OnChangeText += ChangingText;
         PanelUi = GameManager.instance.PanelUi;
         PanelText = GameManager.instance.PanelText;
         textTalk = GameManager.instance.textTalk;
@@ -74,10 +76,50 @@ public class KoopaBossController : MonoBehaviour
         {
             textTalk.text = "La carrera sera hasta la cima, donde estaba el rey. Que me dices Mario?";
         }
-        if (TextsPassed==4)
+        else if (TextsPassed==4)
         {
             talk = true;
 
+        }
+        else if(c==5)
+        {
+            PanelUi.SetActive(false);
+            PanelText.SetActive(true);
+            textTalk.text = "Puedes volver a intentarlo";
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                OnChangeText?.Invoke(7);
+            }
+
+            
+
+        }
+        else if (c == 7)
+        {
+            PanelUi.SetActive(true);
+            PanelText.SetActive(false);
+
+            Instantiate(GameManager.instance.KoopaBoss);
+            GameManager.instance.KoopaBoss.transform.position = GameManager.instance.koopaPosition.position;
+            Destroy(this.gameObject);
+        }
+        else if (c == 6)
+        {
+            PanelUi.SetActive(false);
+            PanelText.SetActive(true);
+            textTalk.text = "Vaya que eres rapido, aquí tienes una recompensa";
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                OnChangeText?.Invoke(8);
+            }
+
+        }
+        else if (c == 8)
+        {
+            Instantiate(GameManager.instance.Star, GameManager.instance.StarPosition);
+            PanelUi.SetActive(true);
+            PanelText.SetActive(false);
+            Destroy(this.gameObject);
         }
 
     }
@@ -114,20 +156,43 @@ public class KoopaBossController : MonoBehaviour
         if (i <= KoopaPositions.Count)
         {
             
-            if (i == 16)
+            
+
+            if (currDifference.magnitude <= 1f && i<=16)
             {
-                koopaAnimator.SetBool("RaceFinish", true);
-                koopaAnimator.SetBool("Run", false);
-                notMove = true;
+                if (i == 16)
+                {
+                    notMove = true;
+                    koopaAnimator.SetBool("RaceFinish", true);
+                    koopaAnimator.SetBool("Run", false);
+                    if (FinishRace.raceWiner == "Koopa")
+                    {
+                        KoopaWin(true);
+                    }
+                    else if (FinishRace.raceWiner == "Mario")
+                    {
+                        KoopaWin(false);
+                    }
+                }
+                if (i != 16)
+                {
+                    NextWaypoint();
+                }
+
             }
 
-            if (currDifference.magnitude <= 1f && i<16)
-            {
+        }
 
-                NextWaypoint();
-
-            }
-
+    }
+    private void KoopaWin(bool winner)
+    {
+        if (winner == true)
+        {
+            OnChangeText?.Invoke(5);
+        }
+        else if (winner == false)
+        {
+            OnChangeText?.Invoke(6);
         }
 
     }
@@ -160,7 +225,7 @@ public class KoopaBossController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F) && talk==false)
         {
-            ChangeText?.Invoke(1);
+            OnChangeText?.Invoke(1);
         }        
     }
 

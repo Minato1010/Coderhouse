@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class WaterScript : MonoBehaviour
 {
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.collider.gameObject.tag == "Player")
+
+
+        if (other.gameObject.tag == "Player")
         {
-            GameManager.instance.marioTransform.animator.SetBool("Swimming", true);
+            Physics.gravity *= -1;
 
-
-
-        }
-
-
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.gameObject.tag == "Player")
-        {
-            GameManager.instance.marioTransform.animator.SetBool("Swimming", false);
 
 
         }

@@ -286,37 +286,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6269869668546942751, guid: 1e042f75b8c5eec468c75b1272be7ff1, type: 3}
---- !u!114 &1929805031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469418064148170214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3360635db131cf2488df266cc270febe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KingAnimator: {fileID: 1929805030}
-  currentHealth: 0
-  speed: 2
-  atacking: 0
-  enemyData: {fileID: 11400000, guid: e4342ddc737d3864bb3e845bf9527412, type: 2}
---- !u!64 &8261004944795772322
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469418064148170214}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5474962112678572875, guid: 1e042f75b8c5eec468c75b1272be7ff1, type: 3}
 --- !u!64 &2978568405494412713
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -331,6 +300,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6269869668546942751, guid: 1e042f75b8c5eec468c75b1272be7ff1, type: 3}
+--- !u!64 &8261004944795772322
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469418064148170214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5474962112678572875, guid: 1e042f75b8c5eec468c75b1272be7ff1, type: 3}
 --- !u!95 &1929805030
 Animator:
   serializedVersion: 5
@@ -351,7 +334,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5882365397518516874
+--- !u!114 &1929805031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,3 +351,6 @@ MonoBehaviour:
   speed: 2
   atacking: 0
   enemyData: {fileID: 11400000, guid: e4342ddc737d3864bb3e845bf9527412, type: 2}
+  OnKingDefeated:
+    m_PersistentCalls:
+      m_Calls: []

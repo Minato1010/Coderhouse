@@ -11,12 +11,14 @@ public class BobOmb : EnemyScript
     [SerializeField] private Transform[] patrolPositions;
     [SerializeField] private EnemyData enemy;
     private float timeToExplode;
-    private float RotationSpeed;
+    
     [SerializeField] private Animator BobOmbAnimator;
    [SerializeField] private Rigidbody bobOmbRigid;
     private bool explode;
     private bool idle;
     private int index=0;
+    [SerializeField] private AudioClip explosionSound;
+
     private void Start()
     {
         Speed = 1.3f;
@@ -77,6 +79,7 @@ public class BobOmb : EnemyScript
         }
         if (GoToPlayer == true)
         {
+            Speed += 1.2f;
             if (idle != true)
             {
                 BobOmbAnimator.SetBool("PlayerDetected", true);
@@ -87,6 +90,7 @@ public class BobOmb : EnemyScript
             if (explode == true && timeToExplode<=Time.time)
             {
                 bobOmbRigid.AddExplosionForce(explosionDamage, transform.position, 3);
+                GameManager.instance.audioSource.PlayOneShot(explosionSound);
                 if (dir.magnitude <=3)
                 {
                     character.ReceiveDamage(explosionDamage);
@@ -94,18 +98,15 @@ public class BobOmb : EnemyScript
                 }
 
             }
-            if (timeToExplode <= Time.time)
-            {
-                explode = true;
-                BobOmbAnimator.SetBool("InPosition", true);
-                BobOmbAnimator.SetBool("PlayerDetected",false);
-                timeToExplode += 1;
-                idle = true;
-            }
+            
             else if (explode == false)
             {
-                timeToExplode = 3 + Time.time;
+                timeToExplode = 4 + Time.time;
                 
+                explode = true;
+                BobOmbAnimator.SetBool("InPosition", true);
+                BobOmbAnimator.SetBool("PlayerDetected", false);
+
             }
         }
 
