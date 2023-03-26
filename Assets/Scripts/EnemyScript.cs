@@ -7,7 +7,8 @@ using UnityEngine.Events;
 {
     Goomba,
     PiranhaPlant,
-    BobOmb
+    BobOmb,
+    Whomp
 
 }
 
@@ -48,9 +49,18 @@ public class EnemyScript : MonoBehaviour
    
     private float delayToDamage = 1f;
     public static event Action OnEnemyDied;
-    
+    [SerializeField] private float timeToFallWhomp;
+    private float timeWhomp;
+    private bool fall;
+    private Vector3 currentPosition;
+    [SerializeField] private AudioClip twompSound;
+    [SerializeField]private AudioSource twompAudio;
+    private bool playSound;
     void Start()
     {
+
+        currentPosition = transform.position;
+        timeWhomp=timeToFallWhomp;
         health = enemyData.health;
         Damage = enemyData.damage;
 
@@ -70,6 +80,16 @@ public class EnemyScript : MonoBehaviour
                 goombaRigidbody = null;
                 goombaDestroyed = null;
                 goombaFindMario = null;
+
+                break;
+            case EnemyStates.Whomp:
+                goombaAnimator = null;
+                goombaPositions = null;
+                goombaRigidbody = null;
+                goombaDestroyed = null;
+                goombaFindMario = null;
+                timeToFallWhomp += Time.time;
+
 
                 break;
             
@@ -105,10 +125,46 @@ public class EnemyScript : MonoBehaviour
             case EnemyStates.PiranhaPlant:
                 LookAtPlayer();
                 break;
+
+            case EnemyStates.Whomp:
+                WhompFall();
+                break;
         }
 
     }
 
+    private void WhompFall()
+    {
+        
+            if (transform.position.y <= currentPosition.y && fall==false)
+            {
+                transform.position += Vector3.up* ((speed/2) *Time.deltaTime);
+            GameManager.instance.marioTransform.transform.localScale = new Vector3(2,2,2);
+
+            }
+        if (transform.position.y > currentPosition.y && fall == false)
+        {
+            playSound = false;
+            timeToFallWhomp = timeWhomp + Time.time;
+            fall = true;
+
+        }
+        else if (timeToFallWhomp <= Time.time && fall == true)
+        {
+            if (playSound == false)
+            {
+                twompAudio.PlayOneShot(twompSound);
+                playSound = true;
+            }
+            transform.position += Vector3.down * ((speed + 5) * Time.deltaTime);
+            }  
+            
+
+        
+
+
+
+    }
 
     protected void RaycastToPlayer()
     {
@@ -289,6 +345,9 @@ private void LookAtPlayer()
    
      void OnCollisionStay(Collision collision)
     {
+        
+
+
         if (collision.collider.gameObject.tag == "Player")
         {
             
@@ -316,19 +375,29 @@ private void LookAtPlayer()
                     
 
                     break;
+                case EnemyStates.Whomp:
+                    transform.position += Vector3.down * (speed+2)*Time.deltaTime;
+                    GameManager.instance.marioTransform.transform.localScale = new Vector3(GameManager.instance.marioTransform.transform.localScale.x,
+                        .3f, GameManager.instance.marioTransform.transform.localScale.z);
+                    break;
 
-               
 
             }
 
         }
         
+        
     }
     void OnCollisionEnter(Collision collision)
     {
-        
+        if (fall == true && collision.collider.gameObject.tag!="Player")
+        {
+            fall = false;
+        }
+
         if (collision.collider.gameObject.tag == "Player")
         {
+           
             var MarioController = collision.collider.gameObject.GetComponent<MarioController>();
             switch (CurrentState)
             {
@@ -337,6 +406,10 @@ private void LookAtPlayer()
                     MarioController.ReceiveDamage(Damage);
 
                     break;
+                case EnemyStates.Whomp:
+                    transform.position += Vector3.down * (speed+2)*Time.deltaTime;
+                    break;
+                
             }
 
             if (MarioController.IsKicking == true)

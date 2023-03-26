@@ -7,7 +7,7 @@ public class FinishRace : MonoBehaviour
 
     public static string raceWiner;
 
-    private bool winner;
+    public static bool winner;
 
 
 

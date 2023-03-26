@@ -295,6 +295,7 @@ public class MarioController : MonoBehaviour
                 marioRigidbody.AddForce(transform.up * (forceAmount * 1.5f), ForceMode.Impulse);
                 marioRigidbody.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
                 Kicking(false);
+                marioIsJumping = false;
             }
             
         }

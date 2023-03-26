@@ -78,7 +78,10 @@ public class KoopaBossController : MonoBehaviour
         }
         else if (TextsPassed==4)
         {
+            GameManager.instance.audioSource.Stop();
+            GameManager.instance.audioSource.PlayOneShot(GameManager.instance.raceMusic);
             talk = true;
+
 
         }
         else if(c==5)
@@ -101,6 +104,10 @@ public class KoopaBossController : MonoBehaviour
 
             Instantiate(GameManager.instance.KoopaBoss);
             GameManager.instance.KoopaBoss.transform.position = GameManager.instance.koopaPosition.position;
+            FinishRace.winner = false;
+            GameManager.instance.marioTransform.transform.position =GameManager.instance.worldToGo.position;
+            GameManager.instance.audioSource.Stop();
+            GameManager.instance.audioSource.PlayOneShot(GameManager.instance.peachCastle);
             Destroy(this.gameObject);
         }
         else if (c == 6)
