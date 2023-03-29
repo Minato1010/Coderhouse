@@ -9,13 +9,18 @@ public class StarScript : MonoBehaviour
     public static Action OnStarCollected;
     public float timeToDestroy;
     public bool destroy;
-
+    [SerializeField] private AudioClip StarAppears;
 
     private void Awake()
     {
         Debug.Log("Publisher OnStarCollected");
     }
 
+    private void Start()
+    {
+        GameManager.instance.audioSource.Stop();
+        GameManager.instance.audioSource.PlayOneShot(StarAppears);
+    }
     private void Update()
     {
         if (destroy == true && timeToDestroy <= Time.time)

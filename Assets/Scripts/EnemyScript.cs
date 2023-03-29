@@ -407,7 +407,7 @@ private void LookAtPlayer()
 
                     break;
                 case EnemyStates.Whomp:
-                    transform.position += Vector3.down * (speed+2)*Time.deltaTime;
+                    fall = true;
                     break;
                 
             }

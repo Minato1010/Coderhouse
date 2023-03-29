@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using TMPro;
+
 public class KingBobOmb : MonoBehaviour
 {
     [SerializeField] private Animator KingAnimator;
@@ -18,15 +20,31 @@ public class KingBobOmb : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
     private float damage;
     public UnityEvent OnKingDefeated;
-    private bool damageAtacking;
     private bool canMove=true;
+    private bool CanSpeak;
+    private int TextsPassed;
+    private Action<int> OnChangeText;
+    [SerializeField] AudioClip BobOmbFight;
+
+    [SerializeField] private GameObject PanelUi;
+    [SerializeField] private GameObject PanelText;
+    [SerializeField] private TMP_Text textTalk;
+    private bool atack;
+    private float timeAtacking;
 
     private void Start()
     {
+        
         character = GameManager.instance.marioTransform;
         maxHealth = enemyData.health;
         currentHealth = maxHealth;
         damage = enemyData.damage;
+        OnChangeText += ChangingText;
+        PanelUi = GameManager.instance.PanelUi;
+        PanelText = GameManager.instance.PanelText;
+        textTalk = GameManager.instance.textTalk;
+        textTalk.text = "Soy el Rey Bob-omb, líder de todo lo explotable, Rey de las bombas de todo el mundo!";
+
 
     }
     private void Update()
@@ -56,15 +74,13 @@ public class KingBobOmb : MonoBehaviour
         }
         if (timeToAtack <= Time.time && atacking == true)
         {
-            damageAtacking = true;
             Atack();
         }
         else if (atacking == false)
         {
             canMove = true;
-            damageAtacking = false;
             atacking = true;
-            timeToAtack = 1.5f + Time.time;
+            timeToAtack = 3f + Time.time;
             KingAnimator.SetBool("IsWalking", true);
 
         }
@@ -74,52 +90,106 @@ public class KingBobOmb : MonoBehaviour
     {
         canMove = false;
         KingAnimator.SetBool("IsWalking", false);
-
         KingAnimator.SetTrigger("Atacking");
         atacking = false;
 
     }
     private void TalkWithThePlayer()
     {
-        if (talking == false)
+        if (talking == true)
         {
-            RaycastToPlayer();
+            Move(character.transform.position);
         }
         else
         {
+            
             KingAnimator.SetBool("Talking", true);
+            TextSpeak();
         }
+
+    }
+    private void TextSpeak()
+    {
+        RaycastToPlayer();
+        if (CanSpeak == true)
+        {
+            GameManager.instance.audioSource.Stop();
+            PanelUi.SetActive(false);
+            PanelText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                OnChangeText?.Invoke(1);
+            }
+
+        }
+       
+
+    }
+
+
+    private void ChangingText(int c)
+    {
+       
+        TextsPassed += c;
+
+        if (TextsPassed == 1)
+        {
+            textTalk.text = "Te ha costado llegar hasta aquí? Te atreviste a poner un pie en la cima Imperial";
+        }
+        else if (TextsPassed == 2)
+        {
+            textTalk.text = "Venciste a mis guardias, pero no podrás escapar de mí..";
+        }
+        
+        else if (TextsPassed == 3)
+        {
+
+            GameManager.instance.marioTransform.canMove = true;
+            PanelText.SetActive(false);
+            PanelUi.SetActive(true);
+            CanSpeak = false;
+            GameManager.instance.audioSource.PlayOneShot(BobOmbFight);
+            talking = true;
+        }
+        
 
     }
     private void RaycastToPlayer()
     {
         var vectorToChar = character.gameObject.transform.position - transform.position;
         vectorToChar.Normalize();
-        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 20);
-        if (collided)
+        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 12);
+        if (collided && raycastInfo.collider.transform.tag=="Player")
         {
-            Move(character.transform.position);
-        }
-        else
-        {
-            KingAnimator.SetBool("IsWalking", false);
+            GameManager.instance.marioTransform.canMove = false;
+            transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(transform.position), Quaternion.LookRotation(vectorToChar), 5);
+
+            CanSpeak = true;
         }
 
 
 
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.tag == "Player")
         {
+            if (timeAtacking <= Time.time)
+            {
+                atack = true;
+            }
+            
             var marioControl = collision.collider.GetComponent<MarioController>();
-            if (damageAtacking == true)
+            if (atack == true)
             {
                 marioControl.ReceiveDamage(damage);
-                damageAtacking = false;
+                atack = false;
+                timeAtacking = 2 + Time.time;
             }
-               
-            
+
+
+
 
             marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.back) * .6f, ForceMode.Impulse);
             marioControl.marioRigidbody.AddForce(marioControl.transform.TransformDirection(Vector3.up) * 1.1f, ForceMode.Impulse);
@@ -147,6 +217,7 @@ public class KingBobOmb : MonoBehaviour
         if (currentHealth <= 0){
             OnKingDefeated?.Invoke();
             Debug.Log("Publisher KingDefeated");
+            GameManager.instance.audioSource.Stop();
             Destroy(gameObject);
         }
     }

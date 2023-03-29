@@ -53,11 +53,12 @@ public class MarioController : MonoBehaviour
     protected float timeToChangePost;
     protected bool PostChange = true;
     [SerializeField] protected Transform jumpPosition;
+    public bool jumpDown;
 
     void Start()
 
     {
-        speed = 10f;
+        speed = 12f;
         currentHealth = maxHealth;
         Debug.Log("Publisher OnDeath Player, OnHealthChange");
     }
@@ -108,6 +109,8 @@ public class MarioController : MonoBehaviour
         {
             animator.SetBool("IsWalking",true);
             animator.SetBool("idle", false);
+
+            
             Jumping();
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -258,9 +261,9 @@ public class MarioController : MonoBehaviour
         if (jumping && Input.GetKeyDown(KeyCode.G))
         {
             animator.SetTrigger("JumpSmashIn");
-
+            jumpDown = true;
         }
-
+        
         if (collided)
         {
             if (marioIsJumping == true && Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
@@ -313,11 +316,14 @@ public class MarioController : MonoBehaviour
 
         }
     }
-    
-   
-    
-   
+    private void OnCollisionEnter(Collision collision)
+    {
+        jumpDown = false;
+    }
 
-    
+
+
+
+
 }
 

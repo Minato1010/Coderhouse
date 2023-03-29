@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a9565bb7c6ff84a8e76ee62a56844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarCollected: 1
-  audioSource: {fileID: 0}
-  peachCastle: {fileID: 8300000, guid: a638173a10d3c984cbb4bf720cb1a356, type: 3}
+  timeToDestroy: 0
+  destroy: 0
+  StarAppears: {fileID: 8300000, guid: 73b8848b092aaad4aba67193e62b9661, type: 3}

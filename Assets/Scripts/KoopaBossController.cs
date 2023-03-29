@@ -64,6 +64,7 @@ public class KoopaBossController : MonoBehaviour
     private void ChangingText(int c)
     {
         TextsPassed += c;
+        
         if (TextsPassed==1)
         {
             textTalk.text = "Sabes?, pareces rapido. Pero que tan rapido eres? Podras ganarme a mi?";
