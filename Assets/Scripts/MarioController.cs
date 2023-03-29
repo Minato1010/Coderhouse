@@ -256,12 +256,12 @@ public class MarioController : MonoBehaviour
         
     var collided = Physics.Raycast(jumpPosition.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .3f);
 
-        var jumping = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out RaycastHit raycastInfo, 20f);
 
-        if (jumping && Input.GetKeyDown(KeyCode.G))
+        if (marioIsJumping==true && Input.GetKeyDown(KeyCode.G))
         {
             animator.SetTrigger("JumpSmashIn");
             jumpDown = true;
+            
         }
         
         if (collided)
@@ -272,6 +272,7 @@ public class MarioController : MonoBehaviour
                 marioRigidbody.AddForce(transform.up * 10, ForceMode.Impulse);
                 audioSource.PlayOneShot(jumpHigh);
                 marioIsJumping = false;
+                
 
             }
 

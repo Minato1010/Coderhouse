@@ -158,7 +158,7 @@ public class KingBobOmb : MonoBehaviour
     {
         var vectorToChar = character.gameObject.transform.position - transform.position;
         vectorToChar.Normalize();
-        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 12);
+        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 14);
         if (collided && raycastInfo.collider.transform.tag=="Player")
         {
             GameManager.instance.marioTransform.canMove = false;

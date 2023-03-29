@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 1dd7cd4b0254aad4c90b57db43107cfd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - StarCoinAudio: {fileID: 8300000, guid: 97876f68048bc674c9c78262a70a83f1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

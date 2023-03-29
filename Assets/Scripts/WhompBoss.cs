@@ -15,7 +15,6 @@ public class WhompBoss : MonoBehaviour
     [SerializeField] private Transform starPosition;
 
 
-
     private bool atacking;
     private float timeToAtack;
     private bool CanSpeak;
@@ -27,10 +26,9 @@ public class WhompBoss : MonoBehaviour
 
     private Action<int> OnChangeText;
     private TMP_Text textTalk;
-    private bool canMove;
+    private bool canMove=true;
     private void Start()
     {
-
         health = enemyData.health;
         damage = enemyData.damage;
         OnChangeText += ChangingText;   
@@ -57,11 +55,14 @@ public class WhompBoss : MonoBehaviour
     {
         if (canMove == true)
         {
+
+//            rigidBody.AddForce(Vector3.down *8f);
             atacking = false;
             animator.SetBool("Walk",true);
             transform.position += dir * (Time.deltaTime*speed);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir),5);
 
+            
             if (timeToAtack <= Time.time)
             {
                 animator.SetTrigger("Atack");
@@ -73,24 +74,27 @@ public class WhompBoss : MonoBehaviour
         }
         else if (canMove == false)
         {
-            if (timeToAtack + 2.5f <= Time.time)
-            {
-                canMove = true;
-                timeToAtack = 4 + Time.time;
+            
+                
                 atacking = true;
-            }
-            else if (Time.time>timeToAtack+3f)
+            
+            if (Time.time>timeToAtack+8f)
             {
-                atacking = false;
+                
+                canMove = true;
+                timeToAtack = 12 + Time.time;
+
+
             }
 
-            
+
         }
     }
     private void RaycastToPlayer()
     {
 
         var vectorToChar = GameManager.instance.marioTransform.gameObject.transform.position - transform.position;
+        vectorToChar = new Vector3(vectorToChar.x, 0, vectorToChar.z);
         vectorToChar.Normalize();
         var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 12);
         if (collided && raycastInfo.collider.transform.tag == "Player")
@@ -175,10 +179,18 @@ public class WhompBoss : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if(Time.time> timeToAtack + 8)
+        {
+            atacking = false;
+            GameManager.instance.marioTransform.transform.localScale = new Vector3(2, 2, 2);
+            
+        }
         if (atacking==true && collision.collider.transform.tag == "Player")
         {
             GameManager.instance.marioTransform.ReceiveDamage(damage);
-
+            GameManager.instance.marioTransform.transform.localScale = new Vector3(2,.2f, 2);
+            atacking = false;
+            
         }
     }
 
