@@ -79,7 +79,7 @@ public class BobOmb : EnemyScript
         }
         if (GoToPlayer == true)
         {
-            Speed += 1.2f;
+            Speed = 2f;
             if (idle != true)
             {
                 BobOmbAnimator.SetBool("PlayerDetected", true);

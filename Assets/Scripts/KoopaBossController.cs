@@ -21,7 +21,7 @@ public class KoopaBossController : MonoBehaviour
     public static bool playMusic;
     private bool notMove;
 
-    private bool textFinishRace;
+    
 
     private void Start()
     {

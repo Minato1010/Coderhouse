@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public bool KingBobOmbDied;
     [SerializeField] private Transform insideCastle;
     public int coins;
-    public int starsCollected;
+    public static int starsCollected=1;
    public StarScript Star;
     public Transform StarPosition;
     public AudioClip FileSelect;
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     public void StarCollected()
     {
 
-        starsCollected = 1;
+        
         audioSource.Stop();
         audioSource.PlayOneShot(marioTransform.StarCollected);
 

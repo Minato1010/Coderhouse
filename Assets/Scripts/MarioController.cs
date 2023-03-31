@@ -54,7 +54,8 @@ public class MarioController : MonoBehaviour
     protected bool PostChange = true;
     [SerializeField] protected Transform jumpPosition;
     public bool jumpDown;
-
+    private float temp;
+    private bool smashDelay;
     void Start()
 
     {
@@ -187,8 +188,8 @@ public class MarioController : MonoBehaviour
 
     public void Heal(int healing)
     {
-        healing = 1;
-        if (currentHealth < 10)
+        
+        if (currentHealth < 8)
         {
             currentHealth += healing;
 
@@ -227,6 +228,7 @@ public class MarioController : MonoBehaviour
         if (currentHealth <= 0)
         {
             audioSource.Stop();
+            ReceiveDamage(0);
             audioSource.PlayOneShot(GameOver);
             animator.SetTrigger("Died");
             if (timeToDestroy <=Time.time && Died==false)
@@ -236,11 +238,9 @@ public class MarioController : MonoBehaviour
             }
             else if(Died==true)
             {
-                timeToDestroy = Time.time+2.5f;
+                timeToDestroy = Time.time+1.5f;
                 Died = false;
-            }
-            
-                
+            }                       
            
         }
         OnHealthChange?.Invoke(currentHealth);
@@ -252,29 +252,35 @@ public class MarioController : MonoBehaviour
     public void Jumping()
     {
             
-            var jumpToFront = Input.GetKeyDown(KeyCode.F);
+        var jumpToFront = Input.GetKeyDown(KeyCode.F);
         
-    var collided = Physics.Raycast(jumpPosition.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .3f);
+        var collided = Physics.Raycast(jumpPosition.position, transform.TransformDirection(Vector3.down),  out RaycastHit raycastHitInfo, .3f);
 
-
-        if (marioIsJumping==true && Input.GetKeyDown(KeyCode.G))
-        {
-            animator.SetTrigger("JumpSmashIn");
-            jumpDown = true;
-            
-        }
+        
         
         if (collided)
         {
+            if (smashDelay==false && jumpDown==true )
+            {
+                smashDelay = true;
+                temp = 1 + Time.time;
+            }
+            else if (smashDelay==true && temp<=Time.time)
+            {
+                jumpDown = false;
+                smashDelay = false;
+            }
+            
+                                      
             if (marioIsJumping == true && Input.GetKeyDown(KeyCode.Space) && jumpToFront == false)
             {
                 animator.SetTrigger("jumpingHigh");
                 marioRigidbody.AddForce(transform.up * 10, ForceMode.Impulse);
                 audioSource.PlayOneShot(jumpHigh);
                 marioIsJumping = false;
-                
+                             
 
-            }
+            }            
 
             else if (Input.GetKeyDown(KeyCode.Space) && jumpToFront == false && marioIsJumping==false)
             {
@@ -301,10 +307,18 @@ public class MarioController : MonoBehaviour
                 Kicking(false);
                 marioIsJumping = false;
             }
-            
+
         }
-        
-       
+        else if (collided != true)
+        {
+            if (Input.GetKeyDown(KeyCode.G) && jumpDown == false)
+            {
+                animator.SetTrigger("JumpSmashIn");
+                jumpDown = true;
+
+            }
+        }
+
     }
 
     protected void Kicking(bool Kick)
@@ -319,10 +333,12 @@ public class MarioController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        jumpDown = false;
+        if (jumpDown == true)
+        {
+            animator.SetTrigger("Stand");
+
+        }
     }
-
-
 
 
 

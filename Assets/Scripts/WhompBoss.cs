@@ -13,20 +13,24 @@ public class WhompBoss : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private Transform starPosition;
+    [SerializeField] private Transform whompTransform;
 
 
     private bool atacking;
     private float timeToAtack;
     private bool CanSpeak;
     private bool talking;
-    private bool LastText;
 
     private int TextsPassed;
     [SerializeField] private AudioClip whompBattle;
+    private bool falled;
 
     private Action<int> OnChangeText;
     private TMP_Text textTalk;
     private bool canMove=true;
+    [SerializeField] private Rigidbody rigidBody;
+    private bool receivingDamage;
+
     private void Start()
     {
         health = enemyData.health;
@@ -35,28 +39,51 @@ public class WhompBoss : MonoBehaviour
         textTalk = GameManager.instance.textTalk;
         textTalk.text = "Los humanos son muy malos. Nosotros formamos sus casas, castillos y caminos, y nos pagan caminando sobre nosotros!";
 
-
     }
 
     private void Update()
     {
         if (talking == true)
         {
+
             RaycastToPlayer();
         }
         else if (talking==false)
         {
             Talking();
         }
-        
+        if (health <= 0)
+        {
+            canMove = false;
+            GameManager.instance.PanelText.SetActive(true);
+            GameManager.instance.PanelUi.SetActive(false);
+            OnChangeText?.Invoke(2);
+            health = 0;
+            GameManager.instance.marioTransform.canMove = false;
+            if (health == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    GameManager.instance.marioTransform.canMove = true;
+                    GameManager.instance.PanelText.SetActive(false);
+                    GameManager.instance.PanelUi.SetActive(true);
+                    Instantiate(GameManager.instance.Star, starPosition);
+                    Destroy(whompTransform.gameObject);
+                }
+
+            }
+
+        }
+
 
     }
+    
     private void Move(Vector3 dir)
     {
         if (canMove == true)
         {
 
-//            rigidBody.AddForce(Vector3.down *8f);
+            rigidBody.AddForce(transform.up *-8f);
             atacking = false;
             animator.SetBool("Walk",true);
             transform.position += dir * (Time.deltaTime*speed);
@@ -66,8 +93,10 @@ public class WhompBoss : MonoBehaviour
             if (timeToAtack <= Time.time)
             {
                 animator.SetTrigger("Atack");
-
+                atacking = true;
                 canMove = false;
+                falled = true;
+                receivingDamage = false;
             }
 
 
@@ -76,11 +105,13 @@ public class WhompBoss : MonoBehaviour
         {
             
                 
-                atacking = true;
+                
             
             if (Time.time>timeToAtack+8f)
             {
-                
+                receivingDamage = true;
+                animator.SetTrigger("StandUp");
+                falled = false;
                 canMove = true;
                 timeToAtack = 12 + Time.time;
 
@@ -94,16 +125,16 @@ public class WhompBoss : MonoBehaviour
     {
 
         var vectorToChar = GameManager.instance.marioTransform.gameObject.transform.position - transform.position;
-        vectorToChar = new Vector3(vectorToChar.x, 0, vectorToChar.z);
-        vectorToChar.Normalize();
+        
         var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 12);
         if (collided && raycastInfo.collider.transform.tag == "Player")
         {
            
-            transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(transform.position), Quaternion.LookRotation(vectorToChar), 5);
 
             CanSpeak = true;
         }
+        vectorToChar = new Vector3(vectorToChar.x, 0, vectorToChar.z);
+        vectorToChar.Normalize();
         if (talking == true)
         {
             Move(vectorToChar);
@@ -112,24 +143,17 @@ public class WhompBoss : MonoBehaviour
 
     private void ReceiveDamage(float damage)
     {
-        health -= damage;
-
-        if (health <0)
+        
+        if (health > 0)
         {
-            GameManager.instance.PanelText.SetActive(true);
-            GameManager.instance.PanelUi.SetActive(false);
-            OnChangeText?.Invoke(2);
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                GameManager.instance.PanelText.SetActive(false);
-                GameManager.instance.PanelUi.SetActive(true);
-                Instantiate(GameManager.instance.Star, starPosition);
-                Destroy(gameObject);
-            }
-
+            health -= damage;
         }
-       
+
+        
+
+        
+        
+
     }
     private void Talking()
     {
@@ -137,6 +161,9 @@ public class WhompBoss : MonoBehaviour
 
         if (CanSpeak == true)
         {
+            var vectorToChar = GameManager.instance.marioTransform.gameObject.transform.position - transform.position;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(vectorToChar), 5);
+
             GameManager.instance.marioTransform.canMove = false;
             animator.SetBool("Talking",true);
             GameManager.instance.PanelText.SetActive(true);
@@ -179,13 +206,13 @@ public class WhompBoss : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(Time.time> timeToAtack + 8)
+        if(Time.time> timeToAtack + 10)
         {
             atacking = false;
             GameManager.instance.marioTransform.transform.localScale = new Vector3(2, 2, 2);
             
         }
-        if (atacking==true && collision.collider.transform.tag == "Player")
+        if (atacking==true && collision.collider.transform.tag == "Player" && GameManager.instance.marioTransform.jumpDown==false)
         {
             GameManager.instance.marioTransform.ReceiveDamage(damage);
             GameManager.instance.marioTransform.transform.localScale = new Vector3(2,.2f, 2);
@@ -194,14 +221,22 @@ public class WhompBoss : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-
-        if (collision.collider.transform.tag=="Player" && atacking==true && GameManager.instance.marioTransform.jumpDown==true)
+        
+        if(falled == true)
         {
-            ReceiveDamage(2);
+            
+            if (other.transform.tag == "Player" && other.GetComponent<MarioController>().jumpDown==true && receivingDamage==false)
+            {
+                atacking = false;
+                
+                ReceiveDamage(2);
+                receivingDamage = true;
 
+            }
         }
+       
 
         
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InvisibleWall
   - BossKoopa
+  - Whomp
   layers:
   - Default
   - TransparentFX

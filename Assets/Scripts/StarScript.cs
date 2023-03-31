@@ -36,6 +36,7 @@ public class StarScript : MonoBehaviour
         {
             if (destroy == false)
             {
+                GameManager.instance.marioTransform.Heal(8);
                 GameManager.instance.audioSource.Stop();
                 GameManager.instance.audioSource.PlayOneShot(GameManager.instance.marioTransform.StarCollected);
                 destroy = true;
