@@ -16,7 +16,8 @@ public class MenuController : MonoBehaviour
     public Slider stereoPan;
     public int Panstereo;
     public float volumeMusic;
-
+    public string stereoPanNamePrefs;
+    public string volumeNamePrefs;
     private void Start()
     {
         
@@ -37,7 +38,6 @@ public class MenuController : MonoBehaviour
         fileSelecting.SetActive(true);
         changeControls.SetActive(false);
         changeSound.SetActive(false);
-        
     }
 
     
@@ -49,17 +49,19 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(name);
       
        audioSource.Stop();
+        PlayerPrefs.SetInt(stereoPanNamePrefs, Panstereo);
+        PlayerPrefs.SetFloat(volumeNamePrefs, volumeMusic);
     }
 
     public void SoundVolume()
     {
         audioSource.volume=volume.value;
-        PlayerPrefs.SetFloat("Volume",volumeMusic);
+        PlayerPrefs.SetFloat(volumeNamePrefs,volumeMusic);
     }
     public void StereoPan()
     {
         audioSource.panStereo = stereoPan.value*-1;
-        PlayerPrefs.SetInt("PanStereo", Panstereo);
+        PlayerPrefs.SetInt(stereoPanNamePrefs, Panstereo);
     }
 
 

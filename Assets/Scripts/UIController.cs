@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class UIController : MonoBehaviour
@@ -29,6 +29,9 @@ public class UIController : MonoBehaviour
 
     public bool CanRespawn;
 
+    [SerializeField] private GameObject pause;
+    [SerializeField] private GameObject normalMenu;
+
 
 
     
@@ -39,6 +42,31 @@ public class UIController : MonoBehaviour
         StarScript.OnStarCollected+=AddStars;
        
         Debug.Log("Suscriber, OnStarCollected, playerDied");
+    }
+    
+    public void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            normalMenu.SetActive(false);
+            pause.SetActive(true);
+        }
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void BackGame()
+    {
+        normalMenu.SetActive(true);
+        pause.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -54,6 +82,7 @@ public class UIController : MonoBehaviour
                 GameOver.gameObject.SetActive(false);
             }
         }
+        Pause();
     }
     public void PlayerDied()
     {

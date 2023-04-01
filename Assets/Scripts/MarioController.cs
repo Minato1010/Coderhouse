@@ -58,14 +58,18 @@ public class MarioController : MonoBehaviour
     private float temp;
     private bool smashDelay;
     [SerializeField] protected GameObject particles;
+    private void Awake()
+    {
+        audioSource.volume = PlayerPrefs.GetFloat("volumeNamePrefs", .8f);
+        audioSource.panStereo = PlayerPrefs.GetInt("stereoPanNamePrefs", 0);
+    }
     void Start()
 
     {
         speed = 12f;
         currentHealth = maxHealth;
         Debug.Log("Publisher OnDeath Player, OnHealthChange");
-        audioSource.volume = PlayerPrefs.GetFloat("Volume", .8f);
-        audioSource.panStereo = PlayerPrefs.GetInt("PanStereo", 0);
+        
     }
    
 
@@ -81,10 +85,10 @@ public class MarioController : MonoBehaviour
     {
         return currentHealth;
     }
-    
-   
 
-        public void Move(Vector3 MoveDir)
+
+   
+    public void Move(Vector3 MoveDir)
     {
         if (timeToChangePost <= Time.time && PostChange == false)
         {

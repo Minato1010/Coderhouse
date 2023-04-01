@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         
      
     }
+
+    
     public void CharacterScore()
     {
         score += 50;
