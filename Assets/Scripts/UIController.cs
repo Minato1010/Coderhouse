@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
     private Sprite currentLife;
     [SerializeField] private MarioController characterController;
 
-
+    public bool CanRespawn;
 
 
 
@@ -41,10 +41,25 @@ public class UIController : MonoBehaviour
         Debug.Log("Suscriber, OnStarCollected, playerDied");
     }
 
-    
+    private void Update()
+    {
+        if (CanRespawn==true)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                GameManager.instance.marioTransform.animator.SetTrigger("Alive");
+                GameManager.instance.marioTransform.transform.position = GameManager.instance.worldToGo.position;
+                GameManager.instance.marioTransform.Heal(8);
+                CanRespawn = false;
+                GameOver.gameObject.SetActive(false);
+            }
+        }
+    }
     public void PlayerDied()
     {
         GameOver.gameObject.SetActive(true);
+        CanRespawn = true;
+
     }
     
     public void AddCoins()

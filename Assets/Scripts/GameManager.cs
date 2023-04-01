@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        
+     
 
         if (instance != null)
         {
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EnemyScript.OnEnemyDied += CharacterScore;
+        
      
     }
     public void CharacterScore()

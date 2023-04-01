@@ -20,7 +20,7 @@ public class KoopaBossController : MonoBehaviour
     private float speed = 13;
     public static bool playMusic;
     private bool notMove;
-
+    [SerializeField] private GameObject particles;
     
 
     private void Start()
@@ -63,6 +63,7 @@ public class KoopaBossController : MonoBehaviour
     }
     private void ChangingText(int c)
     {
+        particles.SetActive(false);
         TextsPassed += c;
         
         if (TextsPassed==1)
@@ -152,7 +153,7 @@ public class KoopaBossController : MonoBehaviour
 
 
 
-
+        particles.SetActive(true);
         var currentWaypoint = KoopaPositions[i];
         var currDifference = currentWaypoint.position - transform.position;
         var direction = currDifference.normalized;
@@ -194,6 +195,7 @@ public class KoopaBossController : MonoBehaviour
     }
     private void KoopaWin(bool winner)
     {
+        particles.SetActive(false);
         if (winner == true)
         {
             OnChangeText?.Invoke(5);

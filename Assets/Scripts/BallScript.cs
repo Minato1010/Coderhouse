@@ -30,7 +30,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == "Player")
         {
-            var marioController = collision.collider.gameObject.GetComponent<MarioController>();
+            var marioController = GameManager.instance.marioTransform;
             marioController.ReceiveDamage(1);
             marioController.marioRigidbody.AddForce(marioController.transform.TransformDirection(Vector3.back) * 10, ForceMode.Impulse);
         }

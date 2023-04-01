@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2062400715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062400716}
+  m_Layer: 9
+  m_Name: JumpPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2062400716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062400715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.616, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6499093016143952244}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7548196862400786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,9 +2617,31 @@ MonoBehaviour:
   cameraMoving: {fileID: 8300000, guid: f3dcd21102c7a634c92e8ebb594e23d0, type: 3}
   marioHurt: {fileID: 8300000, guid: 4709cee75d6fbc6448b828b1542e9e37, type: 3}
   GameOver: {fileID: 8300000, guid: 11a6a8e46e45fda4e9ac3e6b7161acb6, type: 3}
-  afterDefeatBobOmb: {fileID: 0}
+  VolProf: {fileID: 11400000, guid: ac161cb58f023834c93118b98ac33e7f, type: 2}
+  jumpHigh: {fileID: 8300000, guid: 30974359817fe7047b8d7c448b54502d, type: 3}
+  StarCollected: {fileID: 8300000, guid: ea06302de32878a4f8e5c85611a2a466, type: 3}
+  canMove: 1
   marioIsJumping: 0
   IsKicking: 0
+  Swimming: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayerDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  jumpPosition: {fileID: 8241010875473300717}
+  jumpDown: 0
+  particles: {fileID: 8889263607871714260}
 --- !u!114 &1299951310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4819,6 +4872,8 @@ Transform:
   m_Children:
   - {fileID: 2267289169560013621}
   - {fileID: 8766740037412136855}
+  - {fileID: 2062400716}
+  - {fileID: 8889263607871714261}
   m_Father: {fileID: 8338668734196050413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6009,3 +6064,89 @@ Transform:
   m_Father: {fileID: 6499093016143952244}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5310566507250240633
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6499093016143952244}
+    m_Modifications:
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.489
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212717, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_Name
+      value: ParticleMario
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670414168747212717, guid: 79f30f613c33a19438bee27ade2bbd2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79f30f613c33a19438bee27ade2bbd2d, type: 3}
+--- !u!1 &8889263607871714260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3670414168747212717, guid: 79f30f613c33a19438bee27ade2bbd2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5310566507250240633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8889263607871714261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3670414168747212716, guid: 79f30f613c33a19438bee27ade2bbd2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5310566507250240633}
+  m_PrefabAsset: {fileID: 0}

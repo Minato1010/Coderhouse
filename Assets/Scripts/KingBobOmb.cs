@@ -180,7 +180,7 @@ public class KingBobOmb : MonoBehaviour
                 atack = true;
             }
             
-            var marioControl = collision.collider.GetComponent<MarioController>();
+            var marioControl = GameManager.instance.marioTransform;
             if (atack == true)
             {
                 marioControl.ReceiveDamage(damage);
@@ -199,7 +199,7 @@ public class KingBobOmb : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && other.GetComponent<MarioController>().IsKicking == true)
+        if (other.gameObject.tag == "Player" && GameManager.instance.marioTransform.IsKicking == true)
         {
             
                 ReceiveDamage(2);

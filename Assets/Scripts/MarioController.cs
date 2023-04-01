@@ -21,7 +21,7 @@ public class MarioController : MonoBehaviour
 
     [SerializeField] protected Vector3 movingMario;
 
-    [SerializeField] protected AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] protected AudioClip marioYahoo;
     [SerializeField] protected AudioClip marioYipee;
 
@@ -32,8 +32,9 @@ public class MarioController : MonoBehaviour
     [SerializeField] protected AudioClip GameOver;
     [SerializeField] protected VolumeProfile VolProf;
     [SerializeField] protected AudioClip jumpHigh;
+    [SerializeField] protected AudioClip smash;
+
     public AudioClip StarCollected;
-    public Transform afterDefeatBobOmb;
     public bool canMove=true;
 
     public bool marioIsJumping;
@@ -56,12 +57,15 @@ public class MarioController : MonoBehaviour
     public bool jumpDown;
     private float temp;
     private bool smashDelay;
+    [SerializeField] protected GameObject particles;
     void Start()
 
     {
         speed = 12f;
         currentHealth = maxHealth;
         Debug.Log("Publisher OnDeath Player, OnHealthChange");
+        audioSource.volume = PlayerPrefs.GetFloat("Volume", .8f);
+        audioSource.panStereo = PlayerPrefs.GetInt("PanStereo", 0);
     }
    
 
@@ -234,7 +238,7 @@ public class MarioController : MonoBehaviour
             if (timeToDestroy <=Time.time && Died==false)
             {
                 OnDeath?.Invoke();
-                Destroy(gameObject);
+                
             }
             else if(Died==true)
             {
@@ -260,12 +264,7 @@ public class MarioController : MonoBehaviour
         
         if (collided)
         {
-            if (smashDelay==false && jumpDown==true )
-            {
-                smashDelay = true;
-                temp = 1 + Time.time;
-            }
-            else if (smashDelay==true && temp<=Time.time)
+            if (smashDelay==true)
             {
                 jumpDown = false;
                 smashDelay = false;
@@ -335,8 +334,14 @@ public class MarioController : MonoBehaviour
     {
         if (jumpDown == true)
         {
+            
+            particles.SetActive(true);
+            audioSource.PlayOneShot(smash);
+        }
+        if (jumpDown == true && collision.collider.tag != "Player")
+        {
             animator.SetTrigger("Stand");
-
+            smashDelay = true;
         }
     }
 

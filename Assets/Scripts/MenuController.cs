@@ -9,27 +9,37 @@ public class MenuController : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip FileSelect;
-    public Texture2D hand;
-    public Vector2 normalHand;
-    [SerializeField] private Texture2D cursor;
-    [SerializeField] private LuigiController Luigi;
-    [SerializeField] private MarioController Mario;
+    public GameObject fileSelecting;
+    public GameObject changeSound;
+    public GameObject changeControls;
+    public Slider volume;
+    public Slider stereoPan;
+    public int Panstereo;
+    public float volumeMusic;
+
     private void Start()
     {
         
           audioSource.PlayOneShot(FileSelect);
     }
-    private void Update()
-    { 
-        
-            NormalCursor();
+    public void ChangeVolume()
+    {
+        fileSelecting.SetActive(false);
+        changeSound.SetActive(true);
+    }
+    public void ChangeControls()
+    {
+        fileSelecting.SetActive(false);
+        changeControls.SetActive(true);
+    }
+    public void BackMenu()
+    {
+        fileSelecting.SetActive(true);
+        changeControls.SetActive(false);
+        changeSound.SetActive(false);
         
     }
 
-    public void NormalCursor()
-    {
-        Cursor.SetCursor(hand,normalHand,CursorMode.Auto);
-    }
     
 
     public void LoadScene(string name)
@@ -40,5 +50,17 @@ public class MenuController : MonoBehaviour
       
        audioSource.Stop();
     }
-    
+
+    public void SoundVolume()
+    {
+        audioSource.volume=volume.value;
+        PlayerPrefs.SetFloat("Volume",volumeMusic);
+    }
+    public void StereoPan()
+    {
+        audioSource.panStereo = stereoPan.value*-1;
+        PlayerPrefs.SetInt("PanStereo", Panstereo);
+    }
+
+
 }

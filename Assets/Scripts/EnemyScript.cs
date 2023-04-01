@@ -56,9 +56,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private AudioClip twompSound;
     [SerializeField]private AudioSource twompAudio;
     private bool playSound;
+    [SerializeField] private Transform positionPiranha;
+
+
     void Start()
     {
-
+        
         currentPosition = transform.position;
         timeWhomp=timeToFallWhomp;
         health = enemyData.health;
@@ -295,9 +298,7 @@ private void LookAtPlayer()
     {
         var vectorToChar = character.gameObject.transform.position - transform.position;
         
-        var newRotation = Quaternion.LookRotation(vectorToChar);
-        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
-
+        positionPiranha.LookAt(character.gameObject.transform.position);
         if (vectorToChar.magnitude <= 3)
         {
             piranhaAnimator.SetTrigger("Atacking");
@@ -345,18 +346,24 @@ private void LookAtPlayer()
    
      void OnCollisionStay(Collision collision)
     {
-        
 
+        
 
         if (collision.collider.gameObject.tag == "Player")
         {
-            
-            
-           switch (CurrentState)
+
+            switch (CurrentState)
+            {
+                case EnemyStates.PiranhaPlant:
+                    Debug.Log("Chocando");
+                    break;
+
+            }
+            switch (CurrentState)
            {
                 case EnemyStates.Goomba:
                     
-                    var marioController = collision.collider.gameObject.GetComponent<MarioController>();
+                    
 
 
                     if (timeToAtack <= Time.time && Atack==false)
@@ -364,7 +371,7 @@ private void LookAtPlayer()
                         goombaAnimator.SetBool("Atacking", true);
                         goombaAnimator.SetBool("idle", false);
                         goombaAnimator.SetBool("Walking", false);
-                        marioController.ReceiveDamage(Damage);
+                        GameManager.instance.marioTransform.ReceiveDamage(Damage);
                         Atack = true;
                     }
                     else if(Atack==true)
@@ -394,15 +401,15 @@ private void LookAtPlayer()
         {
             fall = false;
         }
-
+        
         if (collision.collider.gameObject.tag == "Player")
         {
-           
-            var MarioController = collision.collider.gameObject.GetComponent<MarioController>();
+
+            var MarioController = GameManager.instance.marioTransform;
             switch (CurrentState)
             {
                 case EnemyStates.PiranhaPlant:
-
+                    Debug.Log("Player");
                     MarioController.ReceiveDamage(Damage);
 
                     break;

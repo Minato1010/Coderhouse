@@ -30,6 +30,7 @@ public class WhompBoss : MonoBehaviour
     private bool canMove=true;
     [SerializeField] private Rigidbody rigidBody;
     private bool receivingDamage;
+    [SerializeField] private AudioClip whompSmashed;
 
     private void Start()
     {
@@ -147,6 +148,7 @@ public class WhompBoss : MonoBehaviour
         if (health > 0)
         {
             health -= damage;
+            GameManager.instance.audioSource.PlayOneShot(whompSmashed);
         }
 
         
@@ -227,7 +229,7 @@ public class WhompBoss : MonoBehaviour
         if(falled == true)
         {
             
-            if (other.transform.tag == "Player" && other.GetComponent<MarioController>().jumpDown==true && receivingDamage==false)
+            if (other.transform.tag == "Player" && GameManager.instance.marioTransform.jumpDown==true && receivingDamage==false)
             {
                 atacking = false;
                 

@@ -123,7 +123,7 @@ public class BobOmb : EnemyScript
 
         if (collision.collider.gameObject.tag == "Player")
         {
-            var MarioController = collision.collider.gameObject.GetComponent<MarioController>();
+            var MarioController = GameManager.instance.marioTransform;
             
 
             if (MarioController.IsKicking == true)
