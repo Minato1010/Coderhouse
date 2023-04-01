@@ -142,7 +142,10 @@ public class EnemyScript : MonoBehaviour
             if (transform.position.y <= currentPosition.y && fall==false)
             {
                 transform.position += Vector3.up* ((speed/2) *Time.deltaTime);
-            GameManager.instance.marioTransform.transform.localScale = new Vector3(2,2,2);
+                if (transform.position.y>= currentPosition.y - 2)
+            {
+                GameManager.instance.marioTransform.transform.localScale = new Vector3(2, 2, 2);
+            }
 
             }
         if (transform.position.y > currentPosition.y && fall == false)
@@ -382,11 +385,7 @@ private void LookAtPlayer()
                     
 
                     break;
-                case EnemyStates.Whomp:
-                    transform.position += Vector3.down * (speed+2)*Time.deltaTime;
-                    GameManager.instance.marioTransform.transform.localScale = new Vector3(GameManager.instance.marioTransform.transform.localScale.x,
-                        .3f, GameManager.instance.marioTransform.transform.localScale.z);
-                    break;
+                
 
 
             }
@@ -415,6 +414,8 @@ private void LookAtPlayer()
                     break;
                 case EnemyStates.Whomp:
                     fall = true;
+                    MarioController.transform.localScale = new Vector3(2,.2f,2);
+                    MarioController.ReceiveDamage(Damage);
                     break;
                 
             }
