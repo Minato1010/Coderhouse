@@ -55,7 +55,7 @@ public class MarioController : MonoBehaviour
     protected bool PostChange = true;
     [SerializeField] protected Transform jumpPosition;
     public bool jumpDown;
-    private float temp;
+    
     private bool smashDelay;
     [SerializeField] protected GameObject particles;
     private void Awake()
@@ -235,20 +235,14 @@ public class MarioController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            audioSource.Stop();
-            ReceiveDamage(0);
+            audioSource.Stop();            
             audioSource.PlayOneShot(GameOver);
             animator.SetTrigger("Died");
-            if (timeToDestroy <=Time.time && Died==false)
-            {
+
+
+           
                 OnDeath?.Invoke();
-                
-            }
-            else if(Died==true)
-            {
-                timeToDestroy = Time.time+1.5f;
-                Died = false;
-            }                       
+                                
            
         }
         OnHealthChange?.Invoke(currentHealth);

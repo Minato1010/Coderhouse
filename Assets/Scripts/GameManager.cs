@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EnemyScript.OnEnemyDied += CharacterScore;
-        
+        Time.timeScale = 1;
      
     }
 

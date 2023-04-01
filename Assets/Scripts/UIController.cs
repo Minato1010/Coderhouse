@@ -64,33 +64,36 @@ public class UIController : MonoBehaviour
     }
     public void BackGame()
     {
+        Time.timeScale = 1;
         normalMenu.SetActive(true);
         pause.SetActive(false);
-        Time.timeScale = 1;
+        
     }
 
     private void Update()
     {
-        if (CanRespawn==true)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                GameManager.instance.marioTransform.animator.SetTrigger("Alive");
-                GameManager.instance.marioTransform.transform.position = GameManager.instance.worldToGo.position;
-                GameManager.instance.marioTransform.Heal(8);
-                CanRespawn = false;
-                GameOver.gameObject.SetActive(false);
-            }
-        }
+        
         Pause();
     }
     public void PlayerDied()
-    {
+    {        
         GameOver.gameObject.SetActive(true);
+        
         CanRespawn = true;
+        normalMenu.SetActive(false);
 
     }
-    
+    public void Revived()
+    {
+        Time.timeScale = 1;
+        GameManager.instance.marioTransform.Heal(10);
+        GameManager.instance.marioTransform.animator.SetTrigger("Alive");
+        GameManager.instance.marioTransform.transform.position = GameManager.instance.worldToGo.position;
+        GameManager.instance.marioTransform.audioSource.PlayOneShot(GameManager.instance.peachCastle);
+        GameOver.gameObject.SetActive(false);
+        normalMenu.SetActive(true);
+
+    }
     public void AddCoins()
     {
         coinsCollected = GameManager.instance.coins;

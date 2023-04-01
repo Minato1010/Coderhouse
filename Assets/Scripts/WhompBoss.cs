@@ -38,7 +38,7 @@ public class WhompBoss : MonoBehaviour
         damage = enemyData.damage;
         OnChangeText += ChangingText;   
         textTalk = GameManager.instance.textTalk;
-        textTalk.text = "Los humanos son muy malos. Nosotros formamos sus casas, castillos y caminos, y nos pagan caminando sobre nosotros!";
+        
 
     }
 
@@ -130,8 +130,8 @@ public class WhompBoss : MonoBehaviour
         var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 12);
         if (collided && raycastInfo.collider.transform.tag == "Player")
         {
-           
 
+            textTalk.text = "Los humanos son muy malos. Nosotros formamos sus casas, castillos y caminos, y nos pagan caminando sobre nosotros!";
             CanSpeak = true;
         }
         vectorToChar = new Vector3(vectorToChar.x, 0, vectorToChar.z);

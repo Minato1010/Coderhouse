@@ -43,7 +43,7 @@ public class KingBobOmb : MonoBehaviour
         PanelUi = GameManager.instance.PanelUi;
         PanelText = GameManager.instance.PanelText;
         textTalk = GameManager.instance.textTalk;
-        textTalk.text = "Soy el Rey Bob-omb, líder de todo lo explotable, Rey de las bombas de todo el mundo!";
+        
 
 
     }
@@ -158,9 +158,10 @@ public class KingBobOmb : MonoBehaviour
     {
         var vectorToChar = character.gameObject.transform.position - transform.position;
         vectorToChar.Normalize();
-        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 14);
+        var collided = Physics.Raycast(transform.position, vectorToChar, out RaycastHit raycastInfo, 8);
         if (collided && raycastInfo.collider.transform.tag=="Player")
         {
+            textTalk.text = "Soy el Rey Bob-omb, líder de todo lo explotable, Rey de las bombas de todo el mundo!";
             GameManager.instance.marioTransform.canMove = false;
             transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(transform.position), Quaternion.LookRotation(vectorToChar), 5);
 
