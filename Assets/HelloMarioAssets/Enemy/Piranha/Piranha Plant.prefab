@@ -131,7 +131,7 @@ MonoBehaviour:
   timeToFallWhomp: 0
   twompSound: {fileID: 0}
   twompAudio: {fileID: 0}
-  positionPiranha: {fileID: 7526151077950720484}
+  positionPiranha: {fileID: 5730625471432164250}
 --- !u!1001 &792054433442474112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,9 +542,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 792054433442474112}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7526151077950720484 stripped
+--- !u!4 &5730625471432164250 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7102092809954500964, guid: 7be8f96748bfada4b827244b7a43ff41,
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7be8f96748bfada4b827244b7a43ff41,
     type: 3}
   m_PrefabInstance: {fileID: 792054433442474112}
   m_PrefabAsset: {fileID: 0}

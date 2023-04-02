@@ -332,6 +332,7 @@ private void LookAtPlayer()
                 {
                     case EnemyStates.PiranhaPlant:
                         piranhaAnimator.SetTrigger("Died");
+                        Destroy(positionPiranha.gameObject);
                         break;
                     case EnemyStates.Goomba:
                 audioSource.PlayOneShot(goombaDestroyed);

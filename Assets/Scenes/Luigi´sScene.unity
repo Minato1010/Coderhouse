@@ -5665,7 +5665,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134445305}
-  m_LocalRotation: {x: -0.0050908397, y: 0.9803961, z: -0.025554944, w: -0.19530621}
+  m_LocalRotation: {x: -0.0050908467, y: 0.9803961, z: -0.025554974, w: -0.19530626}
   m_LocalPosition: {x: -3948.2288, y: 3.213, z: 2901.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11061,7 +11061,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: -0.0050908397, y: 0.9803961, z: -0.025554944, w: -0.19530621}
+  m_LocalRotation: {x: -0.0050908467, y: 0.9803961, z: -0.025554974, w: -0.19530626}
   m_LocalPosition: {x: -3948.2288, y: 3.213, z: 2901.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17587,7 +17587,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 44.072, z: 0}
 --- !u!1 &740076364 stripped
 GameObject:
@@ -57888,7 +57888,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5091577181046685916
 MeshFilter:
@@ -58466,7 +58466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: {fileID: 8100186269379187014}
   stars: {fileID: 8100186268787144573}
-  GameOver: {fileID: 0}
+  GameOver: {fileID: 5266932832508810716}
   life8: {fileID: -483129462, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
   life7: {fileID: -1459826975, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}
   life6: {fileID: -1950891967, guid: 060b98e6aad3e9f47b6f4f5e719ad211, type: 3}

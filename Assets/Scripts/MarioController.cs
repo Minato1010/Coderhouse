@@ -240,9 +240,9 @@ public class MarioController : MonoBehaviour
             animator.SetTrigger("Died");
 
 
-           
+            animator.SetTrigger("Alive");
                 OnDeath?.Invoke();
-                                
+            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y*-1, transform.position.z);                    
            
         }
         OnHealthChange?.Invoke(currentHealth);
