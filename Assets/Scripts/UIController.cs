@@ -51,6 +51,7 @@ public class UIController : MonoBehaviour
             Time.timeScale = 0;
             normalMenu.SetActive(false);
             pause.SetActive(true);
+            GameManager.instance.audioSource.Pause();
         }
     }
 
@@ -64,15 +65,16 @@ public class UIController : MonoBehaviour
     }
     public void BackGame()
     {
+        GameManager.instance.audioSource.Play();
         Time.timeScale = 1;
         normalMenu.SetActive(true);
         pause.SetActive(false);
-        
+        GameManager.instance.marioTransform.animator.SetTrigger("Alive");
     }
 
     private void Update()
     {
-        
+              
         Pause();
     }
     public void PlayerDied()
@@ -85,9 +87,10 @@ public class UIController : MonoBehaviour
     }
     public void Revived()
     {
+        GameManager.instance.marioTransform.animator.SetTrigger("Alive");
         Time.timeScale = 1;
         GameManager.instance.marioTransform.Heal(10);
-        GameManager.instance.marioTransform.animator.SetTrigger("Alive");
+        
         GameManager.instance.marioTransform.transform.position = GameManager.instance.worldToGo.position;
         GameManager.instance.marioTransform.audioSource.PlayOneShot(GameManager.instance.peachCastle);
         GameOver.gameObject.SetActive(false);

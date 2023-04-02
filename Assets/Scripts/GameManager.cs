@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-     
+       
 
         if (instance != null)
         {
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        marioTransform.animator.SetTrigger("Alive");
         EnemyScript.OnEnemyDied += CharacterScore;
         Time.timeScale = 1;
      
