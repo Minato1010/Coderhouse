@@ -7,9 +7,8 @@ public class DoorChangeLocation : MonoBehaviour
     public enum door
     {
         door1,
-        door2,
-        door3,
-        door4
+        door2
+        
     }
 
     [SerializeField] private Transform door1Position;
@@ -33,12 +32,13 @@ public class DoorChangeLocation : MonoBehaviour
                 case door.door1:
                     
                     other.gameObject.transform.position = door2Position.position + new Vector3(0, 0, -2);
+                    audioSource.Stop();
                     audioSource.PlayOneShot(peachCastle);
-
+                    
 
                     break;
                 case door.door2:
-                    
+                    audioSource.Stop();
                     other.gameObject.transform.position = door1Position.position;
                    
                     break;
